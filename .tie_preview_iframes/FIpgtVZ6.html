@@ -1,0 +1,824 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+                                     <!-- ...JdHH""""""""""MHHgJ...
+                                .-W9"!                      ?""Mg..
+                            .JT"`                                .THa,
+                         .."!                                        ?Ha.
+                       .#^                                             .Wm.
+                     .M"                                                 (MJ.
+                   .M"                                                     WMMNg..
+                .-@'   .MMMN,                                          ..(; TMMMM"
+            ..gNJJZ^ .M8rrvrdM,               dMMNNgJ,                7T"=   dM[
+        ..gMMMMMMNgggM8rrrrrrrdN.                 `!!                         X,     `   `   `   `
+         ?MMMMMMMMNgMSrrrrrrrrrd@                                             .N
+    `       ?MMMMMB0rrrrrrrrrwq#!    `   `                `  `  `  `           d]
+       `  .+MSrrrrrrrrrrrwggg#^             `     ..                  `   JMN. .N
+         JM0rrrrrrrrrrrAM"`                      (MMN,                    dMM}  d{
+       .MBrrrrrrrrrrrrwM^                        MMMM]               ......T"  .db
+      .MSrrrrrrrrrrrrrdF                         ,HM9`            .dMF     ?4,   ?m.
+     .MSrrrrrrrrrrrrrrM%           `   `                        .MMMM]       ,N.  .W,  `  `  `  `
+     MBrrrrrrrrrrrrrrrM]                                       .MMMMMM,       .b    Up
+    .#rrrrrrrvwrrrrrrrwM,                                      (MMMMMMMMNNNNMMMM     Wc
+   .MSrrrrrrwM#TNmrrrrrdM,                `  `          `  `   ,MMMMMMMMMMMMMMMF    ..NJdY"""""""7'
+   .#rrrrrrwMFM  ?NgvrrrrMm.     ......-JJ+++&++JJ(......       (HMMMMMMMMMMMM"  7!   M{
+   d@rrrrrrdN+h,   (NsrrrrdN/7!`                          ??~.     ?"""W"""=`         M:
+   dKrrrrrwM??J\     WmrrrrwMp                                         ?          `~?dB"YG+...
+   MSrrrrrdF .#       ?NyrrrrdN,                   ....+77!`          .)         ...JD       ?""G..
+   MwrwkrrdF.MMN....J-..MmrrrrZM, .     .p   ...7""`       .?!       .f          .JMa.
+   MwrdSrrM]  .MMMMMMMMMMe?rrrrrT=N.dex.J#4Y"`          .J^        ..N........JkY"   7Q.
+   WmyMKrrM] .MMMMMMMMMMMMk.1rrrro.WMMNgMMMMN,.       .V!       ..dMMMMMMMMMMMMMa.  ...(S,
+    .T"WMH"`dMMMMMMMMMMMMMMN,?rrrrr,/MMMMMMMMMMMNg-..H+....(gNMMMMMMMMMMMMMMMMMMMMF.MMMN,."
+            .MMMMMMMMMMMMMMMMp.Orrrro,HMMMMMMMMMMM@jMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM>MMMMMMN.
+            .MMMMMMMMMMMMMMMMMN,1rrvrw,TMMMMMMMMBjMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM2MMMMMMMMp
+            MMMMMMMMMMMMMMMMMMMM,(rrvvzi..?WMM#QMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNMMMMMMMMMN.
+           .MMMMMMMMMMMMMMMMMMMM#t.uzzuzzzzo,7MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN.
+           MMMMMMMMMMMMMMMMMMMMMM,.Xzzzuzuzzzw,7MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMb
+          .MMMMMMMMMMMMMMMMMMMMMMN-.zuzzzzuzuzzn,TMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM.
+          dMMMMMMMMMMMMMMMMMMMMMMMb~.zzuzzzuzzzzzn,WMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM[
+         .MMM@MMMMMMMMMMMMMMMMMMMMMh_.Xzuzzzuzuzzzz+(MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM]
+         .MMMXMMMMMMMMMMMMMMMMMMMMMMN,.Ozuzzzuzzuzzzw,TMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM]
+         dMMMzMMMMMMMMMMMMMMMMMMMMMMMMe 1zzuzzzuzzuzzzl,MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM:
+         MMMMvMMMMMMMMMMMMMMMMMMMMMMMMMN,?uzzzuzzzzuzzzw,TMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMF
+         MMMM]MMMMMMMMMMMMMMMMMMMMMMMMMMMNJ?zzzuzuzzuzzzzi,MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM=
+        .MMMMbJMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm,?7wzzzzuzzzzw.UMMMMMMMMMMMMMMMMMMMMMMMMMMMY""!
+        .MMMMM,MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNg.,?7CXzuzzuu?MMMMMMMMMMMMMMMMMMMMMMMM.
+        .MMMMMb(MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNg.,?7Xzn,MMMMMMMMMMMMMMMMMMMMMMM[
+        .MMMMMMp?MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMNa,?w,TMMMMMMMMMMMMMMMMMMMMMF
+        .MMMMMMMb?MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN,?i(MMMMMMMMMMMMMMMMMMMM#
+        .MMMMMMMMN,WMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMR.w,TMMMMMMMMMMMMMMMMMMM --><title>JavaScript / Css 圧縮・軽量化（Minify）：ファイルを圧縮して表示速度を上げる | ラッコツールズ🔧</title>
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700,900|Jura:700|Kosugi+Maru" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<link rel="stylesheet" href="https://rakko.tools/css/reset.css" type="text/css" />
+<link rel="stylesheet" href="https://rakko.tools/css/common.css?ver14" type="text/css" />
+<link rel="stylesheet" href="https://rakko.tools/css/toastr.css" type="text/css" />
+<link rel="stylesheet" href="https://rakko.tools/css/slick.css" type="text/css" />
+<link rel="stylesheet" href="https://rakko.tools/css/slick-theme.css" type="text/css" />
+<link rel="stylesheet" href="https://rakko.tools/image/sns-icon/style.css" type="text/css" />
+<link rel="shortcut icon" href="https://rakko.tools/image/favicon_rakko.ico" >
+<link rel="apple-touch-icon" href="https://rakko.tools/image/apple-touch-icon-180x180.png" sizes="180x180">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://rakko.tools/js/hideshow.min.js"></script>
+<script src="https://rakko.tools/js/jquery.cookie.js"></script>
+<script src="https://rakko.tools/js/jquery-ui.min.js"></script>
+<script src="https://rakko.tools/js/jquery.ui.touch-punch.min.js"></script>
+<script src="https://rakko.tools/js/toastr.min.js"></script>
+<script src="https://rakko.tools/js/slick.min.js"></script>
+<script>
+    var tokenId = '652fd6830b5ef';
+    var token = 'f3652fd6830b5f4';
+</script>
+<script src="https://rakko.tools/js/common.js?ver14"></script>
+
+<meta name="viewport" content="width=device-width">
+
+<!-- 多言語アノテーション -->
+<link rel="alternate" href="https://rakko.tools/tools/33/" hreflang="ja"><link rel="alternate" href="https://en.rakko.tools/tools/33/" hreflang="en"><link rel="alternate" href="https://zh.rakko.tools/tools/33/" hreflang="zh"><link rel="alternate" href="https://zh-tw.rakko.tools/tools/33/" hreflang="zh-tw"><link rel="alternate" href="https://es.rakko.tools/tools/33/" hreflang="es"><link rel="alternate" href="https://hi.rakko.tools/tools/33/" hreflang="hi"><link rel="alternate" href="https://ms.rakko.tools/tools/33/" hreflang="ms"><link rel="alternate" href="https://ru.rakko.tools/tools/33/" hreflang="ru"><link rel="alternate" href="https://fr.rakko.tools/tools/33/" hreflang="fr"><link rel="alternate" href="https://pt.rakko.tools/tools/33/" hreflang="pt"><link rel="alternate" href="https://bn.rakko.tools/tools/33/" hreflang="bn"><link rel="alternate" href="https://de.rakko.tools/tools/33/" hreflang="de"><link rel="alternate" href="https://jv.rakko.tools/tools/33/" hreflang="jv"><link rel="alternate" href="https://ko.rakko.tools/tools/33/" hreflang="ko"><link rel="alternate" href="https://vi.rakko.tools/tools/33/" hreflang="vi"><link rel="alternate" href="https://tr.rakko.tools/tools/33/" hreflang="tr"><link rel="alternate" href="https://pl.rakko.tools/tools/33/" hreflang="pl"><link rel="alternate" href="https://uk.rakko.tools/tools/33/" hreflang="uk"><link rel="alternate" href="https://th.rakko.tools/tools/33/" hreflang="th"><link rel="alternate" href="https://my.rakko.tools/tools/33/" hreflang="my"><link rel="alternate" href="https://id.rakko.tools/tools/33/" hreflang="id"><link rel="alternate" href="https://lo.rakko.tools/tools/33/" hreflang="lo">    <meta name="description" content="空白・改行・コメントを削除し、ソースコードを軽量化します。Javascriptやcssを圧縮するメリットは？ファイルサイズを縮小しサーバー容量の節約ができる読み込み時間が短縮されWebページの表示速度が向上できるソースコードを難読化し悪用を防ぐ">
+    <meta property="og:description" content="空白・改行・コメントを削除し、ソースコードを軽量化します。Javascriptやcssを圧縮するメリットは？ファイルサイズを縮小しサーバー容量の節約ができる読み込み時間が短縮されWebページの表示速度が向上できるソースコードを難読化し悪用を防ぐ" />
+    <meta name="twitter:description" content="空白・改行・コメントを削除し、ソースコードを軽量化します。Javascriptやcssを圧縮するメリットは？ファイルサイズを縮小しサーバー容量の節約ができる読み込み時間が短縮されWebページの表示速度が向上できるソースコードを難読化し悪用を防ぐ" />
+
+<!-- OGP -->
+<link rel="canonical" href="https://rakko.tools/tools/33/" />
+<meta property="og:title" content="JavaScript / Css 圧縮・軽量化（Minify）：ファイルを圧縮して表示速度を上げる | ラッコツールズ🔧" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://rakko.tools/tools/33/" />
+<meta property="og:image" content="https://rakko.tools/image/ogp_img.png" />
+<meta property="og:site_name" content="ラッコツールズ" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:domain" content="rakko.tools" />
+<meta name="twitter:title" content="JavaScript / Css 圧縮・軽量化（Minify）：ファイルを圧縮して表示速度を上げる | ラッコツールズ🔧" />
+<meta name="twitter:image" content="https://rakko.tools/image/ogp_img.png" />
+<meta itemprop="image" content="https://rakko.tools/image/ogp_img.png" />
+<meta name="thumbnail" content="https://rakko.tools/image/tools_meta_thumbnail.png" />
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135229555-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-135229555-1');
+        </script>
+
+        <!--  Google AdSense  -->
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8989398968694747"
+     crossorigin="anonymous"></script>
+
+        <!-- Google Tag Manager -->
+        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-5M4ZV73');
+        </script>
+        <!-- End Google Tag Manager -->
+</head>
+<body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5M4ZV73"
+                          height="0" width="0" style="display:none;visibility:hidden"></iframe>
+        </noscript>
+        <!-- End Google Tag Manager (noscript) -->
+    <header>
+    <a href="/" id="logoRakko"><img src="https://rakko.tools/image/icon_8.png" alt="RakkoTools"></a>
+    <div class="header_title_box">
+        <h1>
+                            <a class="h1_tool" href="/tools/33/">JavaScript / Css 圧縮・軽量化（Minify）</a>
+                    </h1>
+        <h2 class="description">JavaScript、cssのソースコードを圧縮、軽量化</h2>
+    </div>
+            <div id="btnShowSearch">
+            <i class="top_menu fas fa-search"></i>
+        </div>
+        <div id="headerSearchArea">
+            <input type="text" id="headerSearchKeyword" class="search_keyword_input" placeholder="検索キーワード">
+            <div id="btnHeaderToolSearch" class="black_btn"><i class="fas fa-search"></i></div>
+        </div>
+        <div id="btnShowMenu">
+            <i class="top_menu fas fa-list-ul"></i>
+        </div>
+        <a href="https://twitter.com/rakko_inc" target="_blank" rel="noopener"><i class="fab fa-twitter"></i></a>
+</header>
+<div id="wrap">
+    
+<div class="pr_box">
+    <a href="https://rakkoserver.com/?utm_source=rakkotools&utm_medium=referral&utm_campaign=pr_text_link" target="_blank" rel="noopener" class="pr_link" style="text-decoration: none;">
+        <span class="pr_label">PR</span>
+        <span>WP高速化プラグイン「LiteSpeedCache」が使える<br class="sp_only">「ラッコサーバー」</span>
+    </a>
+</div>
+    <input type="hidden" id="langIdBox" value="1">
+    <div id="pcSearchResultArea" class="popup">
+        <div class="balloon">
+            <div id="pcSearchResultInArea">
+                <p class="menu_label">検索</p>
+                <!-- <div id="loadingRakko"></div> -->
+                <p id="pcSearchResultNotMsg">お探しのツールはありませんでした。</p>
+                <div id="pcSearchResultUl">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="navMenuArea" class="popup">
+        <div class="balloon">
+            <div id="navMenuInArea">
+                <p class="menu_label">お気に入り</p>
+                                <p id="favoNotMsg" class="visible">お気に入りツールはありません。</p>
+                                <p class="menu_label">人気ツール</p>
+                    <ul id="popularUl">
+                                            <li><a href="/tools/2/">IPアドレス確認</a></li>
+                                            <li><a href="/tools/91/">くじ引き・抽選</a></li>
+                                            <li><a href="/tools/11/">IPアドレス住所検索</a></li>
+                                            <li><a href="/tools/3/">見出し（hタグ）抽出</a></li>
+                                            <li><a href="/tools/131/">メールアドレスチェック</a></li>
+                                        </ul>
+                                    <p class="menu_label">タグ</p>
+                <div id="tagListArea">
+                                        <a href="/?tag_id=1">SEO</a>
+                                            <a href="/?tag_id=4">SSL</a>
+                                            <a href="/?tag_id=5">テキスト</a>
+                                            <a href="/?tag_id=6">ネットワーク</a>
+                                            <a href="/?tag_id=7">エンコード・デコード</a>
+                                            <a href="/?tag_id=8">ドメイン</a>
+                                            <a href="/?tag_id=9">デザイン</a>
+                                            <a href="/?tag_id=10">バリデーション</a>
+                                            <a href="/?tag_id=12">コンテンツ抽出</a>
+                                            <a href="/?tag_id=13">IP</a>
+                                            <a href="/?tag_id=14">時間</a>
+                                            <a href="/?tag_id=15">Convert</a>
+                                            <a href="/?tag_id=16">PDF</a>
+                                            <a href="/?tag_id=17">ジェネレーター</a>
+                                            <a href="/?tag_id=18">メディア</a>
+                                            <a href="/?tag_id=19">プログラミング</a>
+                                            <a href="/?tag_id=20">セキュリティ</a>
+                                    </div>
+                <!-- <span id="btnHideMenu" class="popup_hide_btn">×</span> -->
+                <div class="nav_btn_area"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="spSearchArea" class="popup_bg">
+        <div class="popup_box_l">
+            <div id="searchTextArea" class="clearfix">
+                <div class="clearfix">
+                    <input type="text" id="searchKeyword" class="search_keyword_input" placeholder="検索キーワード">
+                    <div id="btnToolSearch" class="black_btn">検索</div>
+                </div>
+                <div id="searchTextInArea" class="clearfix">
+                    <p class="menu_label">検索</p>
+                    <!-- <div id="loadingRakko"></div> -->
+                    <p id="searchResultNotMsg">お探しのツールはありませんでした。</p>
+                    <div id="searchResultUl">
+                    </div>
+                </div>
+            </div>
+            <span id="btnHideSearch" class="popup_hide_btn">×</span>
+        </div>
+    </div>
+
+    <div class="container">
+<div class="tool_area">
+    <span class="tool_favo_btn" name="33">
+        <i class="fas fa-star"></i>
+    </span>
+    <span class="hint_box">お気に入りツール登録</span>
+
+<script type="text/javascript">
+    $(function() {
+        $("#tabText").click(function(e) {
+            $('#clear').css('display','block');
+            $('.result_detail_file').hide();
+            if($("#text").val()) {
+                $(".result_detail_text").show();
+            }
+            $('#textInput').css('display','block');
+            $('#fileInput').css('display','none');
+            $("#inputText").show();
+            $("#inputFile").hide();
+            $(this).removeClass("tab_unselected");
+            $("#tabFile").addClass("tab_unselected");
+        });
+        $("#tabFile").click(function(e) {
+            $('#clear').css('display','none');
+            $('.result_detail_text').hide();
+            if($("#file").val()) {
+                $(".result_detail_file").show();
+            }
+            $('#fileInput').css('display','block');
+            $('#textInput').css('display','none');
+            $("#inputText").hide();
+            $("#inputFile").show();
+            $(this).removeClass("tab_unselected");
+            $("#tabText").addClass("tab_unselected");
+        });
+
+        $(document).on('click','#btnSubmit', function () {
+            $('.result_detail_file, .result_detail_text').hide();
+            $('.error_area').hide();
+            $('#text').empty();
+            var data = $('#inputText').val();
+            if(data.trim().length > 0){
+                var option = $('input[name=option]:checked').val();
+                var name = '';
+                if (option == 'css') {
+                    name = '.css';
+                } else if (option == 'javascript') {
+                    name = '.js';
+                }
+                $("#selectedOption").val(name);
+                compressText(option, data);
+            }else{
+                alert("コードを入力してください");
+                return false;
+            }
+        });
+
+        $(document).on('click','#btnSubmitFile', function (e) {
+            $('.result_detail_file').hide();
+            $('.error_area').hide();
+            $('#file').empty();
+            if (!$('#inputFile').val()) {
+                alert("ファイルを選択してください");
+                return false;
+            }
+            var file_data = $('#inputFile').prop('files')[0];
+            var data = openFile(file_data);
+            if (file_data['size'] > 2000000) {
+                ajaxFailsFile();
+                return false;
+            }
+            data.then(function (fileContent) {
+                if (file_data != undefined) {
+                    compressFile($('input[name=option]:checked').val(), fileContent);
+                } else {
+                    alert("ファイルを選択してください");
+                    return false;
+                }
+            })
+        });
+
+    });
+
+    function openFile(data) {
+
+        var reader = new FileReader();
+        return new Promise (function(resolve, reject){
+            reader.onload = function (e) {
+                resolve(e.target.result)
+            };
+            reader.readAsText(data);
+        })
+      };
+
+    function copyText(id){
+        var txt = document.getElementById(id);
+        txt.select();
+        document.execCommand("Copy");
+        showToast('コピーされました');
+    }
+
+    function clearText(id){
+        $('#'+id).val(null).focus();
+    }
+
+    function dowloadFile() {
+        var name = $('#inputFile').prop('files')[0]['name'];
+        $("<a />", {
+        download: 'compress_' + name,
+        href: URL.createObjectURL(
+            new Blob([$("#file").val().replace(/\r?\n/g, '\r\n')], {
+                type: "text/plain"
+            }))
+        }) .appendTo("body")[0].click();
+    }
+
+    function dowloadText() {
+        $("<a />", {
+        download: 'compress' + $("#selectedOption").val(),
+        href: URL.createObjectURL(
+            new Blob([$("#text").val().replace(/\r?\n/g, '\r\n')], {
+                type: "text/plain"
+            }))
+        }) .appendTo("body")[0].click();
+    }
+
+    function compressText(action, data) {
+        requestGtag();
+        $.ajax({
+                url: 'compressJsCssController.php',
+                type: 'POST',
+                dataType: 'json',
+                timeout: 60000,
+                data: {
+                    action: action,
+                    data: data
+                },
+                beforeSend: function () {
+                    $('.loading, #loadingRakko').show();
+                    $("#btnSubmit").prop("disabled", true);
+                },
+                complete: function () {
+                    $('.loading, #loadingRakko').hide();
+                    $("#btnSubmit").prop("disabled", false);
+                },
+                error: function() {
+                    ajaxFailsText();
+                },
+                success: function(json) {
+                    $('.result_detail_text').fadeIn('fast');
+                    if (json.status) {
+                        ajaxDoneText(json.data)
+                    } else {
+                        ajaxFailsText();
+                    }
+                }
+            });
+    }
+
+    function compressFile(action, data) {
+        requestGtag();
+        $.ajax({
+                url: 'compressJsCssController.php',
+                type: 'POST',
+                dataType: 'json',
+                timeout: 60000,
+                data: {
+                    action: action,
+                    data: data
+                },
+                beforeSend: function () {
+                    $('.loading, #loadingRakko').show();
+                    $("#btnSubmit").prop("disabled", true);
+                },
+                complete: function () {
+                    $('.loading, #loadingRakko').hide();
+                    $("#btnSubmit").prop("disabled", false);
+                },
+                error: function() {
+                    ajaxFailsFile();
+                },
+                success: function(json) {
+                    $('.result_detail_file').fadeIn('fast');
+                    ajaxDoneFile(json.data)
+                }
+            });
+    }
+
+    function ajaxDoneFile(data) {
+        $('.result_detail_file').css('display','block');
+        $('.result_detail_text').css('display','none');
+        $('#downloadFile').css('display','block');
+        $('#copyFile').css('display','block');
+        $('.result_detail_file').fadeIn();
+        $('.result_detail_file #file').fadeIn();
+        $("#file").val(data);
+    }
+
+    function ajaxDoneText(data) {
+        $('.result_detail_text').css('display','block');
+        $('.result_detail_file').css('display','none');
+        $('#downloadText').css('display','block');
+        $('#copyText').css('display','block');
+        $('.result_detail_text').fadeIn();
+        $('.result_detail_text #text').fadeIn();
+        $("#text").val(data);
+    }
+
+    function ajaxFailsFile() {
+        $("#btnSubmitFile").prop("disabled", false);
+        $('.loading, #not-shown').hide();
+        $('.result_detail_file').fadeIn();
+        $('.result_detail_file #file').hide();
+        $('#downloadFile').css('display','none');
+        $('#copyFile').css('display','none');
+        $('.result_detail_file').append("<div class='error_area'><p>データの取得に失敗しました。入力内容に誤りがないことを確認してください。</p></div>");
+    }
+
+    function ajaxFailsText() {
+        $("#btnSubmit").prop("disabled", false);
+        $('.loading, #not-shown').hide();
+        $('.result_detail_text').fadeIn();
+        $('.result_detail_text  #text').hide();
+        $('#downloadText').css('display','none');
+        $('#copyText').css('display','none');
+        $('.result_detail_text').append("<div class='error_area'><p>データの取得に失敗しました。入力内容に誤りがないことを確認してください。</p></div>");
+    }
+
+</script>
+
+<style type="text/css">
+    .multi_column_box .column_box_one {
+        max-height: 400px;
+    }
+    .one_column_box {
+        border-radius: 0px 0px 5px 5px;
+    }
+    .column_box_one textarea {
+        width: 100%;
+        height: 250px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .multi_column_box .column_box_one {
+        min-height: auto;
+    }
+
+    #btnSubmit , #btnSubmitFile {
+        width: 100%;
+        max-width: none;
+        margin: 5px 0;
+    }
+
+    .result_detail_file, .result_detail_text {
+        display: none;
+        margin-top: 20px;
+        overflow: auto;
+    }
+
+    .multi_column_box {
+        display: block;
+    }
+    #tabArea {
+        display: flex;
+    }
+
+    #tabText, #tabFile {
+        height: 40px;
+        flex: 1;
+        max-width: unset;
+        border-radius: 5px 5px 0 0;
+        border: 1px solid #e6e6e6;
+        border-bottom: 0;
+        color: #000;
+    }
+
+    #tabText {
+        margin-right: 5px;
+    }
+
+    .tab_unselected {
+        background-color: #f9f9f9;
+    }
+
+    #fileInput {
+        display: none;
+    }
+
+    .loading {
+        height: 240px;
+        width: 100%;
+        position: relative;
+        margin: 10px 0;
+        margin-bottom: 50px;
+        display: none;
+    }
+    #loadingRakko {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .error_area {
+        text-align: center;
+    }
+
+    .link {
+        margin-left: 10px;
+        float: right;
+    }
+</style>
+
+<div id="tabArea">
+    <button id="tabText" class="white_btn">テキスト</button>
+    <button id="tabFile" class="white_btn tab_unselected">ファイル</button>
+</div>
+
+<div class="multi_column_box">
+
+    <div class="one_column_box margin_bottom_10">
+
+        <div class="margin_bottom_10">
+            <label>
+                <input type="radio" name="option" value="css" id="css" checked>
+                <span for="md5">Css</span>
+            </label>
+            <label>
+                <input type="radio" name="option" value="javascript" id="javascript">
+                <span for="crypt">JavaScript</span>
+            </label>
+            <a id="clear" class="link white_btn margin_bottom_10" onclick="clearText('inputText')">クリア</a>
+        </div>
+
+        <div id="textInput">
+            <textarea id="inputText" name="listDomain" rows="8"></textarea>
+            <button id="btnSubmit" class="black_btn">圧縮</button>
+        </div>
+        <div id="fileInput" class="tabFile">
+            <input type="file" name="inputFile" id="inputFile" class="margin_bottom_5" >
+            <button class="black_btn" id="btnSubmitFile" name="submit">圧縮</button>
+        </div>
+    </div>
+
+    <div class="one_column_box result_detail_file">
+        <a id="downloadFile" class="white_btn link margin_bottom_10" onclick="dowloadFile()">ダウンロード</a>
+        <a id="copyFile" class="white_btn link margin_bottom_10" onclick="copyText('file')">コピー</a>
+        <textarea id="file" rows="8" autocomplete="off"></textarea>
+    </div>
+    <div class="one_column_box result_detail_text">
+        <a id="downloadText" class="white_btn link margin_bottom_10" onclick="dowloadText()">ダウンロード</a>
+        <a id="copyText" class="white_btn link margin_bottom_10" onclick="copyText('text')">コピー</a>
+        <textarea id="text" rows="8" autocomplete="off"></textarea>
+    </div>
+    <input type="hidden" id="selectedOption" value="">
+</div>
+
+<div class="loading">
+    <div id="loadingRakko">
+    </div>
+</div>
+
+    <script type="text/javascript">
+        $(function () {
+            $("#toolSnsArea .copy").click(function () {
+                copyClipboardText($(this).attr('alt'));
+                showToast("ページ名とURLをコピーしました");
+            });
+        });
+    </script>
+
+    </div>
+    <div class="ad_area">
+        <a href="https://rakkoma.com/?utm_source=rakkotools&utm_medium=referral&utm_campaign=big_banner" target="_blank" rel="noopener" style="width: 100%; display: inline-block;">
+            <img src="https://cdn.rakkoid.com/images/banners/ma_banner_2060x280.png" alt="サイト売買のラッコM&A" class="pc_only" style="width: 100%;">
+            <img src="https://cdn.rakkoid.com/images/banners/ma_banner_640x510.png" alt="サイト売買のラッコM&A" class="sp_only" style="width: 100%;">
+        </a>
+    </div>
+<!-- Google AdSense Tag -->
+    <div class="tool_common_area">
+        <h3>できること</h3>
+        <div>空白・改行・コメントを削除し、ソースコードを軽量化します。<br />
+<br />
+<H4>Javascriptやcssを圧縮するメリットは？</H4><UL><LI>ファイルサイズを縮小しサーバー容量の節約ができる</LI><LI>読み込み時間が短縮されWebページの表示速度が向上できる</LI><LI>ソースコードを難読化し悪用を防ぐ</LI></UL></div>
+        <h3>使用例</h3>
+        <div><UL><LI>表示速度が重要なWebページを作成している際に、JS/CSSファイルを圧縮しファイルサイズを縮小して転送量を軽減する</LI></UL></div>
+    </div>
+    <div id="toolSnsTagArea">
+        <div id="toolSnsArea">
+            <!-- Twitter -->
+            <a class="twitter_share"
+               href="http://twitter.com/share?url=https%3A%2F%2Frakko.tools%2Ftools%2F33%2F&amp;text=JavaScript+%2F+Css+%E5%9C%A7%E7%B8%AE%E3%83%BB%E8%BB%BD%E9%87%8F%E5%8C%96%EF%BC%88Minify%EF%BC%89+%7C+%E3%83%A9%E3%83%83%E3%82%B3%E3%83%84%E3%83%BC%E3%83%AB%E3%82%BA%F0%9F%94%A7+%40rakko_inc&amp;hashtags=RAKKOTOOLS%2C%E3%83%84%E3%83%BC%E3%83%AB"
+               target="blank">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <!-- Facebook -->
+            <a class="facebook_share"
+               href="http://www.facebook.com/share.php?u=https%3A%2F%2Frakko.tools%2Ftools%2F33%2F&amp;t=JavaScript+%2F+Css+%E5%9C%A7%E7%B8%AE%E3%83%BB%E8%BB%BD%E9%87%8F%E5%8C%96%EF%BC%88Minify%EF%BC%89+%7C+%E3%83%A9%E3%83%83%E3%82%B3%E3%83%84%E3%83%BC%E3%83%AB%E3%82%BA%F0%9F%94%A7"
+               target="blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <!-- Pocket -->
+            <a class="pocket_share"
+               href="http://getpocket.com/edit?url=https%3A%2F%2Frakko.tools%2Ftools%2F33%2F&amp;title=JavaScript+%2F+Css+%E5%9C%A7%E7%B8%AE%E3%83%BB%E8%BB%BD%E9%87%8F%E5%8C%96%EF%BC%88Minify%EF%BC%89+%7C+%E3%83%A9%E3%83%83%E3%82%B3%E3%83%84%E3%83%BC%E3%83%AB%E3%82%BA%F0%9F%94%A7"
+               target="blank">
+                <i class="fab fa-get-pocket"></i>
+            </a>
+            <!-- B! Hatena -->
+            <a class="hatena_share"
+               href="http://b.hatena.ne.jp/add?mode=confirm&amp;url=https%3A%2F%2Frakko.tools%2Ftools%2F33%2F&amp;title=JavaScript+%2F+Css+%E5%9C%A7%E7%B8%AE%E3%83%BB%E8%BB%BD%E9%87%8F%E5%8C%96%EF%BC%88Minify%EF%BC%89+%7C+%E3%83%A9%E3%83%83%E3%82%B3%E3%83%84%E3%83%BC%E3%83%AB%E3%82%BA%F0%9F%94%A7"
+               target="blank">
+                <i class="icon-hatena"></i>
+            </a>
+            <!-- Line -->
+            <a class="line_share"
+               href="http://line.naver.jp/R/msg/text/?JavaScript+%2F+Css+%E5%9C%A7%E7%B8%AE%E3%83%BB%E8%BB%BD%E9%87%8F%E5%8C%96%EF%BC%88Minify%EF%BC%89+%7C+%E3%83%A9%E3%83%83%E3%82%B3%E3%83%84%E3%83%BC%E3%83%AB%E3%82%BA%F0%9F%94%A7%0D%0Ahttps%3A%2F%2Frakko.tools%2Ftools%2F33%2F">
+                <i class="icon-line"></i>
+            </a>
+            <!-- 記事タイトルとURLをコピーする -->
+            <a class="copy" alt="JavaScript / Css 圧縮・軽量化（Minify） | ラッコツールズ🔧 https://rakko.tools/tools/33/">
+                <i class="fas fa-copy"></i>
+            </a>
+        </div>
+        <div id="toolTagArea" class="clearfix">
+                            <a href="/?tag_id=15" class="white_btn">Convert</a>
+                            <a href="/?tag_id=19" class="white_btn">プログラミング</a>
+                    </div>
+    </div>
+    <div class="ad_area">
+        <div id="adSlider">
+            <div class="slick-slide" data-slick-index="1" aria-hidden="false">
+                <a href="https://www.topshelfequestrian.com/?utm_source=rakkotools&utm_medium=referral&utm_campaign=service_list_banner" target="_blank" rel="noopener" style="width: 100%; display: inline-block;">
+                    <img src="https://cdn.rakkoid.com/images/banners/old_domain_banner.png" alt="中古ドメイン販売屋さん">
+                </a>
+            </div>
+            <div class="slick-slide" data-slick-index="2" aria-hidden="false">
+                <a href="https://rakkoma.com/?utm_source=rakkotools&utm_medium=referral&utm_campaign=service_list_banner" target="_blank" rel="noopener" style="width: 100%; display: inline-block;">
+                    <img src="https://cdn.rakkoid.com/images/banners/ma_banner.png" alt="サイト売買のラッコM&A">
+                </a>
+            </div>
+            <div class="slick-slide" data-slick-index="3" aria-hidden="false">
+                <a href="https://rakkoserver.com/market/?utm_source=rakkotools&utm_medium=referral&utm_campaign=service_list_banner" target="_blank" rel="noopener" style="width: 100%; display: inline-block;">
+                    <img src="https://cdn.rakkoid.com/images/banners/market_banner.png" alt="５秒でサイトが買える！リアルタイムサイト売買のラッコマーケット">
+                </a>
+            </div>
+            <div class="slick-slide" data-slick-index="4" aria-hidden="false">
+                <a href="https://rakkodomain.com/?utm_source=rakkotools&utm_medium=referral&utm_campaign=service_list_banner" target="_blank" rel="noopener" style="width: 100%; display: inline-block;">
+                    <img src="https://cdn.rakkoid.com/images/banners/domain_banner.png" alt="ドメイン取得のラッコドメイン">
+                </a>
+            </div>
+            <div class="slick-slide" data-slick-index="5" aria-hidden="false">
+                <a href="https://related-keywords.com/?utm_source=rakkotools&utm_medium=referral&utm_campaign=service_list_banner" target="_blank" rel="noopener" style="width: 100%; display: inline-block;">
+                    <img src="https://cdn.rakkoid.com/images/banners/keyword_banner.png" alt="関連キーワードのラッコキーワード">
+                </a>
+            </div>
+            <div class="slick-slide" data-slick-index="7" aria-hidden="false">
+                <a href="https://rakkoserver.com/?utm_source=rakkotools&utm_medium=referral&utm_campaign=service_list_banner" target="_blank" rel="noopener" style="width: 100%; display: inline-block;">
+                    <img src="https://cdn.rakkoid.com/images/banners/server_banner.png" alt="ラッコサーバー">
+                </a>
+            </div>
+        </div>
+    </div>
+
+<!-- ラッコM&A -->
+<div class="ma_widget"><script class="rakkoma-widget" src="https://api.rakkoma.com/js/widget.js"></script></div>
+<!-- Google AdSense Tag -->
+    <h3 class="back_white">関連ツール</h3>
+    <div id="relationToolArea" class="tool_box_area">
+                    <a name="75" href="/tools/75/">
+                <div class="tool_title_box">
+                    <span class="tool_title">テキスト - 2進数(バイナリ)変換・逆変換</span>
+                </div>
+            </a>
+                    <a name="77" href="/tools/77/">
+                <div class="tool_title_box">
+                    <span class="tool_title">テキスト - 16進数(HEX) 変換・逆変換</span>
+                </div>
+            </a>
+                    <a name="74" href="/tools/74/">
+                <div class="tool_title_box">
+                    <span class="tool_title">バイナリ変換・逆変換</span>
+                </div>
+            </a>
+                    <a name="37" href="/tools/37/">
+                <div class="tool_title_box">
+                    <span class="tool_title">SQL文整形</span>
+                </div>
+            </a>
+                    <a name="76" href="/tools/76/">
+                <div class="tool_title_box">
+                    <span class="tool_title">テキスト - ASCII変換・逆変換</span>
+                </div>
+            </a>
+                    <a name="81" href="/tools/81/">
+                <div class="tool_title_box">
+                    <span class="tool_title">10進数(デシマル)-16進数(HEX) 変換・逆変換</span>
+                </div>
+            </a>
+                    <a name="53" href="/tools/53/">
+                <div class="tool_title_box">
+                    <span class="tool_title">HTMLコード整形</span>
+                </div>
+            </a>
+                    <a name="78" href="/tools/78/">
+                <div class="tool_title_box">
+                    <span class="tool_title">テキスト - 10進数(デシマル) 変換・逆変換</span>
+                </div>
+            </a>
+                    <a name="35" href="/tools/35/">
+                <div class="tool_title_box">
+                    <span class="tool_title">JavaScript / CSS 整形</span>
+                </div>
+            </a>
+                    <a name="40" href="/tools/40/">
+                <div class="tool_title_box">
+                    <span class="tool_title">XML整形</span>
+                </div>
+            </a>
+                    <a name="79" href="/tools/79/">
+                <div class="tool_title_box">
+                    <span class="tool_title">2進数(バイナリ)-16進数(HEX) 変換・逆変換</span>
+                </div>
+            </a>
+                    <a name="60" href="/tools/60/">
+                <div class="tool_title_box">
+                    <span class="tool_title">命名規則一括変換</span>
+                </div>
+            </a>
+            </div>
+<!-- Google AdSense Tag -->
+<!-- rakko.tools.bottom -->
+<ins class="adsbygoogle"
+     style="display:block; padding-top: 5px; margin-bottom:20px;"
+     data-ad-client="ca-pub-8989398968694747"
+     data-ad-slot="9104695216"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<!-- ラッコツールズ工房 -->
+<div style="margin-bottom:20px;"><script class="workshop-widget" src="https://rakko.tools/wp-newentry.js"></script></div>
+
+    </div>
+</div>
+<footer>
+    <div class="group_link">
+        <span class="pc_group_link_label">Group site:</span> <span class="sp_group_link_label">Group site</span>
+        <a href="https://www.topshelfequestrian.com/" target="_blank" rel="noopener">中古ドメイン</a> /
+        <a href="https://rakkoma.com/" target="_blank" rel="noopener">サイト売買</a> /
+        <a href="https://rakkoserver.com/market/" target="_blank" rel="noopener">リアルタイムサイト売買</a> /
+        <a href="https://rakkodomain.com/" target="_blank" rel="noopener">ドメイン取得</a> /
+        <a href="https://rakkoserver.com/" target="_blank" rel="noopener">レンタルサーバー</a> /
+        <a href="https://related-keywords.com/" target="_blank" rel="noopener">キーワード</a>
+    </div>
+    <div class="footer_nav_box">
+        <div class="footer_lang_nav">
+            <div id="langSelectArea" class="popup">
+                <div class="balloon_bottom">
+                    <p class="menu_label">language</p>
+                    <div id="langSelectInArea">
+                                            <a href="https://en.rakko.tools/tools/33/">English</a>
+                                            <a href="https://zh.rakko.tools/tools/33/">簡体字</a>
+                                            <a href="https://zh-tw.rakko.tools/tools/33/">繁体字</a>
+                                            <a href="https://es.rakko.tools/tools/33/">español</a>
+                                            <a href="https://hi.rakko.tools/tools/33/">हिंदी</a>
+                                            <a href="https://ms.rakko.tools/tools/33/">Bahasa Melayu</a>
+                                            <a href="https://ru.rakko.tools/tools/33/">русский язык</a>
+                                            <a href="https://fr.rakko.tools/tools/33/">français</a>
+                                            <a href="https://pt.rakko.tools/tools/33/">português</a>
+                                            <a href="https://bn.rakko.tools/tools/33/">বাংলা</a>
+                                            <a href="https://de.rakko.tools/tools/33/">Deutsch</a>
+                                            <a href="https://jv.rakko.tools/tools/33/">Basa Jawa</a>
+                                            <a href="https://ko.rakko.tools/tools/33/">한국어</a>
+                                            <a href="https://vi.rakko.tools/tools/33/">Tiếng Việt</a>
+                                            <a href="https://tr.rakko.tools/tools/33/">Türkçe</a>
+                                            <a href="https://pl.rakko.tools/tools/33/">język polski</a>
+                                            <a href="https://uk.rakko.tools/tools/33/">Українська мова</a>
+                                            <a href="https://th.rakko.tools/tools/33/">ภาษาไทย</a>
+                                            <a href="https://my.rakko.tools/tools/33/">မြန်မာဘာသာ</a>
+                                            <a href="https://id.rakko.tools/tools/33/">Bahasa Indonesia</a>
+                                            <a href="https://lo.rakko.tools/tools/33/">ພາສາລາວ</a>
+                                        </div>
+                </div>
+            </div>
+                            <button id="btnLangSelect" class="white_btn" type="button">language : 日本語</button>
+                    </div>
+        <div class="footer_nav">
+            <a href="/workshop/"><i class="fas fa-book"></i></a>
+            <a href="/contact.php" title="ご意見・ご要望"><i class="fas fa-envelope"></i></a>
+            <a href="/privacy_policy.php" title="privacy policy"><i class="fas fa-lock"></i></a>
+            <span><a href="https://rakko.inc/recruit/" target="_blank" rel="noopener">ラッコ社で働く？</a>&copy;2019-2023 <a href="https://rakko.inc/" target="_blank" rel="noopener">Rakko, Inc.</a></span>
+        </div>
+    </div>
+</footer>
+<!-- Google AdSense Tag -->
+<script>
+    [].forEach.call(document.querySelectorAll('.adsbygoogle'), function(){
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    });
+</script>
+</body>
+</html>
