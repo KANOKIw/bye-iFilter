@@ -15,7 +15,7 @@
         <meta name="twitter:description" content="...">
         <meta name="twitter:image" content="http://kanokiw.com/img/.pri/coturnix.png">
         <meta name="theme-color" content="#dfa920" data-react-helmet="true">
-        <title>KANOKIw | viewer</title>
+        <title>Browser | KANOKIw</title>
         <link rel="icon" href="/img/.pri/favicon.ico">
         <title>viewer</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -60,6 +60,28 @@ main{
     border: solid 3px var(--color-primary);;
     color: var(--color-url);
     overflow-wrap: break-word;
+    background-color: rgb(51, 0, 0);
+    text-decoration: underline;
+}
+
+.border_notice{
+    animation-name: notice;
+    animation-duration: 1s;
+}
+
+@keyframes notice{
+    from {border-color: greenyellow;}
+    to {border-color: var(--color-primary);}
+}
+
+.border_warn{
+    animation-name: warn;
+    animation-duration: 1s;
+}
+
+@keyframes warn{
+    from {border-color: red;}
+    to {border-color: var(--color-primary);}
 }
 
 #typing{
@@ -100,7 +122,7 @@ main{
 }
 
 #cent-submit{
-    border: solid 2px var(--color-primary);;
+    border: solid 2px var(--color-primary);
     padding: 10px;
     font-size: 1rem;
     font-weight: 600;
@@ -108,8 +130,17 @@ main{
     color: var(--color-url);
 }
 
+#cent-gg{
+    border: solid 2px var(--color-primary);
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: white;
+}
+
 #next_dx{
     border: solid 3px var(--color-gold);
+    background-color: var(--color-primary);
 }
 
 hr{
@@ -129,20 +160,29 @@ hr{
     -moz-user-select: none; 
     -ms-user-select: none;
 }
+
+#typing[contenteditable=true]:empty:before{
+    content: attr(placeholder);
+    color: #aaa;
+    text-decoration: none;
+    pointer-events: none;
+    display: block;
+}
         </style>
     </head>
     <body style="width: 100vw; height: auto;">
         <main id="aw">
             <div id="_typing">
                 <div class="cent" id="typing_wrapper">
-                    <a id="cent-a_">
-                        <div class="cent" id="typing" contenteditable="true">
-                        
-                        </div>
-                    </a>
+                    <!--user typing place-->
+                    <div class="cent" id="typing" contenteditable="true" placeholder="URL | Google Search"></div>
                 </div>
                 <p class="cent ghFG" id="cent-for" for="cent-input"></p>
-                <button class="cent ghFG" id="cent-submit" type="button">GET</button><br>
+                <button class="cent ghFG cent-btn" id="cent-submit" type="button">GET</button>
+                <button class="cent ghFG cent-btn" id="cent-gg" type="button">
+                    <div class="tablerrr" id="ggl_btn"></div>
+                </button>
+                <br>
             </div>
             <p id="a"></p>
         </main>
@@ -151,6 +191,7 @@ hr{
                 <br>
                 <h1>Oops!</h1>
                 <h1>Something went wrong.</h1>
+                <h3 id="pr_u"></h3>
                 <br>
                 <h3><a href="/">← 戻る</a></h3>
             </div>
@@ -163,10 +204,21 @@ hr{
 var typing = document.getElementById("typing");
 var _hr = document.getElementById("cent-a_");
 var submitter = document.getElementById("cent-submit");
+var submitter_gg = document.getElementById("cent-gg");
+var cent_for = document.getElementById("cent-for");
 var wrong = getParam("wrong");
+var GOOLE = `<!--
+    --><span style="color: #4285F4;">G</span><!--
+    --><span style="color: #DB4437;">o</span><!--
+    --><span style="color: #F4B400;">o</span><!--
+    --><span style="color: #4285F4;">g</span><!--
+    --><span style="color: #0F9D58;">l</span><!--
+    --><span style="color: #DB4437;">e</span><!--
+-->`;
 
 if (wrong){
-    showSmthWentWrong();
+    var u = decodeURI(getParam("u"));
+    showSmthWentWrong(u);
     throw new Error();
 }
 
@@ -208,25 +260,23 @@ function getParam(name, url) {
     }
 }();
 
-!function(t, s){
+!function(t, s, c, j){
     t.addEventListener("input", function(event){
-        var inner = this.textContent;
+        var q = this.textContent;
     });
     s.addEventListener("click", function(event){
         var url = t.textContent;
+
+        if (url.length < 1){
+            doAnimation("#typing_wrapper", "border_warn");
+            return;
+        }
         var syms = ["\n", " ", "　"];
         for (var s of syms){
             url = url.replaceAll(s, "");
         }
         if (url.startsWith("https://www.google.co.jp/url") || url.startsWith("https://www.google.com/url")){  // i-filter base url
-            var rps = {
-                "%2F": "/",
-                "%3A": ":",
-            };
-            url = getParam("url", url);
-            for (var k in rps){
-                url = url.replaceAll(k, rps[k]);
-            }
+            url = decodeURI(getParam("url", url));
         }
         if (!(url.startsWith("http://") || url.startsWith("https://"))){
             url = "http://"+url; // auto redirects to https
@@ -236,10 +286,26 @@ function getParam(name, url) {
         }
         getHTML(url);
     });
-}(typing, submitter);
+    c.addEventListener("click", function(event){
+        var q = t.textContent;
+        if (q.length < 1){
+            doAnimation("#typing_wrapper", "border_warn");
+            return;
+        }
+        q = q.replace(" ", "+");
+        q = encodeURI(q);
+        var url = `https://www.google.co.jp/search?q=${q}&oq=${q}+&sourceid=${getBrowserName()}&client=${getBrowserName()}&ie=UTF-8&oe=UTF-8`;
+        getHTML(url);
+    });
+    j.addEventListener("click", function(){
+        t.focus();
+        doAnimation("#typing_wrapper", "border_notice");
+    });
+}(typing, submitter, submitter_gg, cent_for);
 
 !function(){
-    document.getElementById("cent-for").textContent = "サイトのリンクをペースト";
+    document.getElementById("cent-for").innerHTML = `サイトのリンクをペースト | ${GOOLE}検索`;
+    document.getElementById("ggl_btn").innerHTML = GOOLE;
 }();
 
 /**
@@ -252,7 +318,7 @@ function getHTML(code){
         type: "POST",
     })
     .done(doneCallback)
-    .fail(goToSmthWentWrong);
+    .fail(function(){goToSmthWentWrong(code);});
     function doneCallback(data){
         var path = data.iframe;
         var main = document.getElementById("aw");
@@ -279,7 +345,7 @@ function write_iFrame(path, id){
             title="Inline Frame Example"
             frameborder="no"
             height="100"
-            src="${path}"></iframe>
+            src="http://kanokiw.com/find/${id}"></iframe>
     `;
     document.getElementById("showOnblank").href = "http://preview.kanokiw.com/find/"+id;
     $(window).on('load resize',function(){
@@ -288,15 +354,39 @@ function write_iFrame(path, id){
     });
 }
 
-function goToSmthWentWrong(){
-    window.location.href = "/?wrong=wrong";
+function goToSmthWentWrong(u){
+    window.location.href = `/?wrong=wrong&u=${encodeURI(u)}`;
 }
 
-function showSmthWentWrong(){
+function showSmthWentWrong(u){
     $("main").hide();
     $("#fail-c").show().css("display", "flex");
+    $("#pr_u").html(`<span style="color: white"><span style="color: gray">URL you provided:&nbsp;</span>${u}</span>`);
     $("#cr").hide();
 }
+
+function doAnimation(jquerySelectTag, animationClass){
+    $(jquerySelectTag).removeClass(animationClass);
+    setTimeout(() => {$(jquerySelectTag).addClass(animationClass);}, 1);
+}
+
+function getBrowserName(){
+    var userAgent = navigator.userAgent;
+    if (userAgent.includes("Chrome")) {
+        return "chrome";
+    } else if (userAgent.includes("Firefox")) {
+        return "firefox";
+    } else if (userAgent.includes("Safari") && !userAgent.includes("Chrome")) {
+        return "safari";
+    } else if (userAgent.includes("Edge")) {
+        return "edge";
+    } else if (userAgent.includes("MSIE") || userAgent.includes("Trident/")) {
+        return "internet_explorer";
+    } else {
+        return "unknown";
+    }
+}
+
 !function(){
     var a = document.body.children;
     for (b of Array.from(a)){

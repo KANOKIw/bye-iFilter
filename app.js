@@ -4,12 +4,12 @@ var express = require("express");
 var http = require("http");
 var socket_io_1 = require("socket.io");
 var fs = require("fs");
-var bodyParser = require('body-parser');
+var bodyParser = require("body-parser");
 var app = express();
 var PORT = 80;
-const jsdom = require('jsdom');
+const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
-var jquery = require('jquery');
+var jquery = require("jquery");
 var crypto = require("crypto");
 
 
@@ -72,8 +72,11 @@ function time() {
 }
 
 
-function getJSON(path){
-    return JSON.parse(fs.readFileSync(path));
+function getJSON(path, encoding){
+    if (!encoding){
+        encoding = "utf-8";
+    }
+    return JSON.parse(fs.readFileSync(path), encoding);
 }
 
 
@@ -84,7 +87,7 @@ app.use(express.static('./'));
 var server = http.createServer(app);
 var io = new socket_io_1.Server(server, {
 /*
-// cors設定はこれ
+// cors
 cors:{
     origin: ["http://xxxx"]
 }
@@ -107,12 +110,21 @@ app.post("/fetch-for-ipad", async function(req, res){
     var url = body.url;
     var co_path = "./.tie_preview_iframes/.co.json";
     try {
+        var domain = new URL(url).origin;
         var response = await fetch(url);
-        var rn = random.string(8);
+        var rn = random.string(16);
         var all = getJSON(co_path);
         var text = await response.text();
         var path = "./.tie_preview_iframes/"+rn+".html";
         var client_path = path.slice(1);
+
+        if (domain.includes("//google.")){
+            domain = domain.replace("//google.", "//www.google.");
+        }
+        // startsWith("/");
+        text = text.replace(/(src|href)="\/(.*?)"/g, '$1="' + domain + '/$2"');
+        // startsWith("./");
+        text = text.replace(/(src|href)="\.\/(.*?)"/g, '$1="' + url.substring(0, url.lastIndexOf("/")) + '/$2"');
         await fs.writeFileSync(path, text);
 
         all[rn] = {path: client_path, url: url.replaceAll(" ", "")};
@@ -126,7 +138,7 @@ app.post("/fetch-for-ipad", async function(req, res){
 
 app.get('/find/:stringid', (req, res) => {
     var co_path = "./.tie_preview_iframes/.co.json";
-    var stringid = req.params.stringid; 
+    var stringid = req.params.stringid;
     var data = getJSON(co_path)[stringid];
 
     if (data){
