@@ -117,17 +117,21 @@ app.post("/fetch-for-ipad", async function(req, res){
         var text = await response.text();
         var path = "./.tie_preview_iframes/"+rn+".html";
         var client_path = path.slice(1);
+        var $ = jquery((new JSDOM(text).window));
+        var title = $("title").text();
 
         if (domain.includes("//google.")){
             domain = domain.replace("//google.", "//www.google.");
         }
         // startsWith("/");
-        text = text.replace(/(src|href)="\/(.*?)"/g, '$1="' + domain + '/$2"');
+        text = text.replaceAll(/(src|href)="\/(.*?)"/g, '$1="' + domain + '/$2"');
+        text = text.replaceAll(/url\("\/(.+)"\)/g, 'url("' + domain + '/$1")');
         // startsWith("./");
-        text = text.replace(/(src|href)="\.\/(.*?)"/g, '$1="' + url.substring(0, url.lastIndexOf("/")) + '/$2"');
+        text = text.replaceAll(/(src|href)="\.\/(.*?)"/g, '$1="' + url.substring(0, url.lastIndexOf("/")) + '/$2"');
+        text = text.replaceAll(/url\("\.\/(.+)"\)/g, 'url("' + url.substring(0, url.lastIndexOf("/")) + '/$1")');
         await fs.writeFileSync(path, text);
 
-        all[rn] = {path: client_path, url: url.replaceAll(" ", "")};
+        all[rn] = {path: client_path, url: url.replaceAll(" ", ""), title: title};
         fs.writeFileSync(co_path, JSON.stringify(all, null, 2), "utf-8");
         res.send({original: text, iframe: client_path, fy: rn});
     } catch (error){
@@ -145,7 +149,7 @@ app.get('/find/:stringid', (req, res) => {
         var re = data.path;
         res.sendFile(__dirname + re);
     } else {
-        res.redirect("/src/lost/");
+        res.status(404).sendFile(__dirname + "/src/lost/index.html");
     }
 });
 
@@ -157,7 +161,7 @@ app.get('/iframe/:stringid', (req, res) => {
     if (data){
         var re = data.path;
         var url = data.url
-        res.send({path: re, url: url});
+        res.send({path: re, url: url, title: data.title});
     } else {
         res.status(500).send("Error: undefined");
     }
@@ -168,5 +172,5 @@ server.listen(PORT, function () {
 });
 
 app.use((req, res, next) => {
-    res.status(404).redirect("/src/lost/");
+    res.status(404).sendFile(__dirname + "/src/lost/index.html");
 });

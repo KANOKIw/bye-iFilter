@@ -222,7 +222,8 @@ if (wrong){
     throw new Error();
 }
 
-function getParam(name, url) {
+function getParam(name, url)
+{
     if (!url) url = window.location.href;
     name = name.replace(/[\[\]]/g, "\\$&");
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
@@ -232,19 +233,26 @@ function getParam(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-!function(){
+!function()
+{
     var s = getParam("s");
     if (s){
         $.ajax({
             url: "/iframe/"+s,
             type: "GET",
+            timeout: 15_000,
         })
         .done(d)
         .fail(f);
         function d(data){
             var path = data.path;
             var u = data.url;
+            var title = data.title;
             var a = "";
+
+            if (title){
+                $("title").text(`${title} | Browser | KANOKIw`);
+            }
             if (u.startsWith("http://")){
                 var ex = "https"+u.slice(4);
                 a = `<a href="${u}">${u}</a><span style="color: var(--color-primary);;">&nbsp;|&nbsp;</span><a href="${ex}">${ex}</a>`
@@ -260,7 +268,8 @@ function getParam(name, url) {
     }
 }();
 
-!function(t, s, c, j){
+!function(t, s, c, j)
+{
     t.addEventListener("input", function(event){
         var q = this.textContent;
     });
@@ -281,9 +290,14 @@ function getParam(name, url) {
         if (!(url.startsWith("http://") || url.startsWith("https://"))){
             url = "http://"+url; // auto redirects to https
         }
-        if (url.startsWith("http://www.kanokiw.com") || url.startsWith("http://kanokiw.com")){
+        if (url.startsWith("http://www.kanokiw.com")
+            || url.startsWith("http://kanokiw.com")
+            || url.startsWith("http://preview.kanokiw.com")
+            ){
             goToSmthWentWrong();
         }
+        if ((new URL(url)).origin == url)
+            url += "/";
         getHTML(url);
     });
     c.addEventListener("click", function(event){
@@ -295,6 +309,8 @@ function getParam(name, url) {
         q = q.replace(" ", "+");
         q = encodeURI(q);
         var url = `https://www.google.co.jp/search?q=${q}&oq=${q}+&sourceid=${getBrowserName()}&client=${getBrowserName()}&ie=UTF-8&oe=UTF-8`;
+        if ((new URL(url)).origin == url)
+            url += "/";
         getHTML(url);
     });
     j.addEventListener("click", function(){
@@ -303,7 +319,8 @@ function getParam(name, url) {
     });
 }(typing, submitter, submitter_gg, cent_for);
 
-!function(){
+!function()
+{
     document.getElementById("cent-for").innerHTML = `サイトのリンクをペースト | ${GOOLE}検索`;
     document.getElementById("ggl_btn").innerHTML = GOOLE;
 }();
@@ -311,11 +328,13 @@ function getParam(name, url) {
 /**
  * @param {string} code
 */
-function getHTML(code){
+function getHTML(code)
+{
     $.ajax({
         data: {url: code},
         url: "/fetch-for-ipad",
         type: "POST",
+        timeout: 15_000,
     })
     .done(doneCallback)
     .fail(function(){goToSmthWentWrong(code);});
@@ -329,7 +348,8 @@ function getHTML(code){
 }
 
 
-function write_iFrame(path, id){
+function write_iFrame(path, id)
+{
     var main = document.getElementById("aw");
     $(".success_ind").show();
     $(".ghFG").remove();
@@ -354,23 +374,27 @@ function write_iFrame(path, id){
     });
 }
 
-function goToSmthWentWrong(u){
+function goToSmthWentWrong(u)
+{
     window.location.href = `/?wrong=wrong&u=${encodeURI(u)}`;
 }
 
-function showSmthWentWrong(u){
+function showSmthWentWrong(u)
+{
     $("main").hide();
     $("#fail-c").show().css("display", "flex");
     $("#pr_u").html(`<span style="color: white"><span style="color: gray">URL you provided:&nbsp;</span>${u}</span>`);
     $("#cr").hide();
 }
 
-function doAnimation(jquerySelectTag, animationClass){
+function doAnimation(jquerySelectTag, animationClass)
+{
     $(jquerySelectTag).removeClass(animationClass);
     setTimeout(() => {$(jquerySelectTag).addClass(animationClass);}, 1);
 }
 
-function getBrowserName(){
+function getBrowserName()
+{
     var userAgent = navigator.userAgent;
     if (userAgent.includes("Chrome")) {
         return "chrome";
@@ -387,7 +411,8 @@ function getBrowserName(){
     }
 }
 
-!function(){
+!function()
+{
     var a = document.body.children;
     for (b of Array.from(a)){
         if (!b.tagName == "MAIN"){
