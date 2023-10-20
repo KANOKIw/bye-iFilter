@@ -354,7 +354,7 @@ button:hover{
                         <div class="private" id="cl_wrapper" contenteditable="false">
                             <img id="typing_clearer" src="./img/clear.png">
                         </div>
-                        <!--user typing place-->
+                        <!--user typing place below-->
                         <div class="cent" id="typing" contenteditable="true" placeholder="URL | Google Search"></div>
                     </div>
                 </div>
@@ -499,6 +499,9 @@ function getParam(name, url)
         if (url.startsWith("http://www.kanokiw.com")
             || url.startsWith("http://kanokiw.com")
             || url.startsWith("http://preview.kanokiw.com")
+            || url.startsWith("www.kanokiw.com")
+            || url.startsWith("kanokiw.com")
+            || url.startsWith("preview.kanokiw.com")
             ){
             goToSmthWentWrong();
         }
