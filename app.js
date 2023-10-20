@@ -138,7 +138,7 @@ app.post("/fetch-for-ipad", async function(req, res){
     var co_path = "./.tie_preview_iframes/.co.json";
 
     try {
-        var response = await fetch(url);
+        var response = await fetch(url, {mode: "cors",});
         var rn = random.string(16);
         var all = getJSON(co_path);
         var text = await response.text();

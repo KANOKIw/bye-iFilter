@@ -1,0 +1,8 @@
+[2023-09-20 21:19:33] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\.bye-iFilter\app.js:141:24{
+  "cause": {
+    "code": "UNABLE_TO_VERIFY_LEAF_SIGNATURE"
+  }
+}
