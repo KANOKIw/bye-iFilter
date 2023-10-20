@@ -1,1 +1,20 @@
-{}
+{
+  "UZENGVsgeqATw49i": {
+    "path": "/.tie_preview_iframes/UZENGVsgeqATw49i.html",
+    "url": "https://www.youtube.com/",
+    "title": "YouTube",
+    "favicon_url": "https://www.youtube.com/s/desktop/1b003624/img/favicon_32x32.png"
+  },
+  "p0HHAodwVlgdwdtX": {
+    "path": "/.tie_preview_iframes/p0HHAodwVlgdwdtX.html",
+    "url": "https://translate.google.co.jp/?hl=ja",
+    "title": "Google 翻訳",
+    "favicon_url": "https://ssl.gstatic.com/translate/favicon.ico"
+  },
+  "wwAzagieThmweFmq": {
+    "path": "/.tie_preview_iframes/wwAzagieThmweFmq.html",
+    "url": "https://translate.google.co.jp/?hl=ja",
+    "title": "Google 翻訳",
+    "favicon_url": "https://ssl.gstatic.com/translate/favicon.ico"
+  }
+}

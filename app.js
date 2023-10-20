@@ -81,6 +81,16 @@ function getJSON(path, encoding){
 }
 
 
+function writeLog(msg){
+    var p = "";
+    try{
+        p = fs.readFileSync("./Latest.log");
+    } catch (e){}
+    p += msg;
+    fs.writeFileSync("./Latest.log", p);
+}
+
+
 function toAbsPath(url, html){
     var _url = new URL(url);
     var domain = _url.origin;
@@ -154,13 +164,14 @@ app.post("/fetch-for-ipad", async function(req, res){
         fs.writeFileSync(co_path, JSON.stringify(all, null, 2), "utf-8");
         res.status(200).send({original: text, iframe: client_path, fy: rn, path: client_path, url: url.replaceAll(" ", ""), title: title, favicon_url: favicon_url});
     } catch (error){
+        writeLog(time() + " " + error.stack + JSON.stringify(error, null, 2) + "\n");
         console.log(time(), error);
         res.status(500).send("Error: " + error.message);
     }
 });
 
 app.get("/view", (req, res) => {
-    res.sendFile(__dirname + "/view.html");
+    res.sendFile(__dirname + "/src//view/index.html");
 });
 
 app.get("/find/:stringid", (req, res) => {
