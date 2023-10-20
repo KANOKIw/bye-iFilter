@@ -52,18 +52,35 @@ main{
     font-family: var(--font-display);
 }
 
+.private{
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+    -khtml-user-select: none;
+    -moz-user-select: none; 
+    -ms-user-select: none;
+}
+
 .cent{
     margin: 7px;
 }
 
+#typing_wrapper_x{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #typing_wrapper{
-    width: 90vw;
+    width: 100%;
     height: auto;
     border: solid 3px var(--color-primary);;
     color: var(--color-url);
     overflow-wrap: break-word;
     background-color: rgb(51, 0, 0);
     text-decoration: underline;
+    margin: 7px;
+    position: relative;
 }
 
 .border_notice{
@@ -89,6 +106,26 @@ main{
 #typing{
     border: none;
     outline: none;
+    position: relative;
+    z-index: 1000;
+}
+
+#cl_wrapper{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    z-index: 1001;
+    pointer-events: none;
+}
+
+#typing_clearer{
+    height: 24px;
+    margin-top: 7px;
+    margin-right: 7px;
+    cursor: pointer;
+    pointer-events: all;
+    display: none;
 }
 
 #cent-for{
@@ -103,7 +140,7 @@ main{
     font-family: var(--font-display);
 }
 
-#fail-c h1, h3{
+#fail-c h1, #fail-c h3{
     text-align: center;
 }
 
@@ -140,6 +177,14 @@ main{
     background-color: white;
 }
 
+#cent-hist{
+    border: solid 2px var(--color-primary);
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: rgb(158, 255, 134);
+}
+
 #next_dx{
     border: solid 3px var(--color-gold);
     background-color: var(--color-primary);
@@ -155,12 +200,6 @@ hr{
     display: flex;
     align-items: center;
     justify-content: center;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none; 
-    -khtml-user-select: none;
-    -moz-user-select: none; 
-    -ms-user-select: none;
 }
 
 #typing[contenteditable=true]:empty:before{
@@ -174,21 +213,152 @@ hr{
 iframe{
     background-color: white;
 }
+
+button:hover{
+    cursor: pointer;
+}
+
+#user-select-options{
+    display: flex;
+}
+
+#cent-hist{
+    margin-left: auto;
+    margin-right: 7px;
+}
+
+#hist_user_display{
+    list-style-type: none;
+    width: 100vw;
+}
+
+.hist_element{
+    margin: 50px;
+    margin-right: 0;
+}
+
+.hist_main_wrapper{
+    display: flex;
+    align-items: center;
+    width: 100vw;
+}
+
+.hist_favicon_wrapper{
+    border: solid 1px #ecedef;
+    border-radius: 50%;
+    background-color: #f1f3f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 26px;
+    width: 26px;
+    margin-right: 12px;
+}
+
+.hist_favicon{
+    height: 18px;
+    width: 18px;
+}
+
+.hist_title{
+    font-size: 18px;
+}
+
+.hist_url{
+    font-size: 16px;
+    line-height: 22px;
+    width: 75vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#hist_viewer_back{
+    right: 0;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    color: greenyellow;
+    text-align: right;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.hist_deleter{
+    color: #CF222E;
+    background-color: var(--color-primary);
+    border: solid 2px gray;
+    border-radius: 10px;
+    padding: 10px;
+    transition: all 0.25s linear;
+}
+
+.hist_deleter:hover{
+    color: var(--color-primary);
+    background-color: #CF222E;
+    border: solid 2px gray;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.hist_deleter_textContent{
+    white-space: nowrap;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.hist_notifier{
+    width: 100vw;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#hist_event_notifier_success{
+    border: solid 3px rgb(146, 211, 49);
+    background-color: rgba(146, 211, 49, 0.25);
+}
+
+#hist_event_notifier_error{
+    border: solid 3px rgb(212, 46, 46);
+    background-color: rgba(212, 46, 46, 0.25);
+}
+
+.hist_notifier_img{
+    max-height: 20px;
+    margin-right: 5px;
+}
+
+.loading_gif{
+    display: none;
+}
         </style>
     </head>
-    <body style="width: 100vw; height: auto;">
+    <body>
         <main id="aw" style="display: none;">
             <div id="_typing">
-                <div class="cent" id="typing_wrapper">
-                    <!--user typing place-->
-                    <div class="cent" id="typing" contenteditable="true" placeholder="URL | Google Search"></div>
+                <div class="d poaAS OOs" id="typing_wrapper_x">
+                    <div class="cent" id="typing_wrapper">
+                        <div class="private" id="cl_wrapper" contenteditable="false">
+                            <img id="typing_clearer" src="./img/clear.png">
+                        </div>
+                        <!--user typing place below-->
+                        <div class="cent" id="typing" contenteditable="true" placeholder="URL | Google Search"></div>
+                    </div>
                 </div>
                 <p class="cent ghFG" id="cent-for" for="cent-input"></p>
-                <button class="cent ghFG cent-btn" id="cent-submit" type="button">GET</button>
-                <button class="cent ghFG cent-btn" id="cent-gg" type="button">
-                    <div class="tablerrr" id="ggl_btn"></div>
-                </button>
-                <br>
+                <div id="user-select-options">
+                    <!--GET-->
+                    <img class="loading_gif" id="getterBtn" src="./img/loading.gif">
+                    <button class="cent ghFG cent-btn" id="cent-submit" type="button">GET</button>
+                    <!--Google-->
+                    <img class="loading_gif" id="googlerBtn" src="./img/loading.gif">
+                    <button class="cent ghFG cent-btn" id="cent-gg" type="button">
+                        <div class="tablerrr" id="ggl_btn"></div>
+                    </button>
+                    <!--history-->
+                    <button class="cent ghFG cent-btn" id="cent-hist" type="button">history</button>
+                </div>
             </div>
             <p id="a"></p>
         </main>

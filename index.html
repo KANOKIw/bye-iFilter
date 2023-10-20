@@ -126,6 +126,7 @@ main{
     margin-right: 7px;
     cursor: pointer;
     pointer-events: all;
+    display: none;
 }
 
 #cent-for{
@@ -540,6 +541,7 @@ function getParam(name, url)
     document.getElementById("cent-for").innerHTML = `サイトのリンクをペースト | ${GOOLE}検索`;
     document.getElementById("ggl_btn").innerHTML = GOOLE;
     $(".loading_gif").css("width", $(".cent").height() + 14 + "px");
+    $("#typing_clearer").show();
 }();
 
 /**
