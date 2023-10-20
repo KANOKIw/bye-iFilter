@@ -186,9 +186,9 @@ function getHTML(code)
         var main = document.getElementById("aw");
         var id = data.fy;
         var red = `/view?s=${id}`;
-        var preview = `http://preview.kanokiw.com/find/${id}`;
+        var view = `http://kanokiw.com/view?s=${id}`;
 
-        addToHist({title: data.title, url: data.url, preview: preview, favicon_url: data.favicon_url, timestamp: time()});
+        addToHist({title: data.title, url: data.url, view: view, favicon_url: data.favicon_url, id: id, timestamp: time()});
         hideLoadingSymbols();
         window.location.href = red;
     }
@@ -287,7 +287,7 @@ function showHist()
     for (var di of hist){
         var title = di.title;
         var url = di.url;
-        var preview = di.preview;
+        var view = di.view;
         var favicon_url = di.favicon_url;
         var timestamp = di.timestamp;
 
@@ -304,7 +304,7 @@ function showHist()
                     </div>
                     <div>
                         <span class="hist_title">${title}</span>
-                        <div class="hist_url"><a href="${preview}">${preview}</a></div>
+                        <div class="hist_url"><a href="${view}">${view}</a></div>
                         <div class="hist_url">Original: <a href="${url}">${url}</a></div>
                     </div>
                 </div>
