@@ -77,42 +77,6 @@ function write_iFrame(path, id)
 
 function ntf(){
     !function(){
-        if (Math.random() > 0.25){
-            document.getElementById("w").src = "/src/lost/egg.png";
-            document.getElementById("HFTFE").src = "/src/lost/HFTFE.mp3";
-            document.getElementById("wwv").innerHTML += `
-                body {
-                    font-family: "dot";
-                    background-image: url("/src/lost/back.png");
-                    background-repeat: repeat;
-                    background-size: 100%;
-                    margin: 0;
-                    user-select: none;
-                    -webkit-touch-callout: none;
-                    -webkit-user-select: none; 
-                    -khtml-user-select: none;
-                    -moz-user-select: none; 
-                    -ms-user-select: none;
-                }
-            `;
-        } else {
-            document.getElementById("w").src = "/src/lost/si.png";
-            document.getElementById("HFTFE").src = "/src/lost/SDW.mp3";
-            document.getElementById("wwv").innerHTML += `
-                body {
-                    font-family: "dot";
-                    background-image: url("/src/lost/st.png");
-                    background-repeat: repeat;
-                    background-size: 100%;
-                    margin: 0;
-                    user-select: none;
-                    -webkit-touch-callout: none;
-                    -webkit-user-select: none; 
-                    -khtml-user-select: none;
-                    -moz-user-select: none; 
-                    -ms-user-select: none;
-                }
-            `;
-        }
+        
     }();
 }

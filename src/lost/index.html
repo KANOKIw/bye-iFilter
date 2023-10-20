@@ -130,7 +130,9 @@ if (Math.random() > 0.25){
 }
 for (var m of ["touchstart", "mousedown"]){
     window.addEventListener(m, function(){
-        e.play();
+        setTimeout(() => {
+            e.play();
+        }, 25);
     });
 }
 document.getElementById("HFTFE").addEventListener("play", function(){
