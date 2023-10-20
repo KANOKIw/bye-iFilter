@@ -82,9 +82,10 @@
         </div>
     </body>
     <script>
+var e = new Audio();
 if (Math.random() > 0.25){
     document.getElementById("w").src = "/src/lost/resources/egg.png";
-    document.getElementById("HFTFE").src = "/src/lost/resources/HFTFE.mp3";
+    document.getElementById("HFTFE").src = e.src = "/src/lost/resources/HFTFE.mp3";
     document.getElementById("ev-p").innerHTML = `
         <h1>迷子だなぁ</h1>
         <h1>そうに決まってる</h1>
@@ -106,7 +107,7 @@ if (Math.random() > 0.25){
     `;
 } else {
     document.getElementById("w").src = "/src/lost/resources/si.png";
-    document.getElementById("HFTFE").src = "/src/lost/resources/SDW.mp3";
+    document.getElementById("HFTFE").src = e.src = "/src/lost/resources/SDW.mp3";
     document.getElementById("ev-p").innerHTML = `
         <h1>てめぇ－</h1>
         <h1>ここどこだと思ってんじゃごれぇー</h1>
@@ -127,6 +128,17 @@ if (Math.random() > 0.25){
         }
     `;
 }
-document.querySelectorAll("script").forEach(o => o.remove());
+for (var m of ["touchstart", "mousedown"]){
+    window.addEventListener(m, function(){
+        e.play();
+    });
+}
+document.getElementById("HFTFE").addEventListener("play", function(){
+    e.pause();
+    e = {play: function(){}, pause: function(){}};
+});/*
+document.getElementById("HFTFE").addEventListener("pause", function(){
+    e.play();
+});*/
     </script>
 </html>
