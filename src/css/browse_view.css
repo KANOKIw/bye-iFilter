@@ -177,6 +177,7 @@ main{
     font-size: 1rem;
     font-weight: 600;
     background-color: rgb(158, 255, 134);
+    border-radius: 10px;
 }
 
 #next_dx{
@@ -187,6 +188,8 @@ main{
 
 hr{
     margin: 10px;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 #cr{
@@ -322,11 +325,12 @@ button:hover{
 }
 
 #confirm-clear-overlay{
+    font-family: var(--font-display);
     display: none;
     width: 100vw;
     height: 100vh;
     position: fixed;
-    background-color: rgba(128, 128, 128, 0.25);
+    background-color: rgba(128, 128, 128, 0.1);
     z-index: 1002;
 }
 
@@ -343,6 +347,7 @@ button:hover{
     width: 300px;
     height: auto;
     background-color: var(--color-primary);
+    border: solid 1px gray;
     border-radius: 10px;
     padding: 10px;
     color: black;
