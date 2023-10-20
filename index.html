@@ -52,6 +52,15 @@ main{
     font-family: var(--font-display);
 }
 
+.private{
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+    -khtml-user-select: none;
+    -moz-user-select: none; 
+    -ms-user-select: none;
+}
+
 .cent{
     margin: 7px;
 }
@@ -72,6 +81,7 @@ main{
     background-color: rgb(51, 0, 0);
     text-decoration: underline;
     margin: 7px;
+    position: relative;
 }
 
 .border_notice{
@@ -97,6 +107,25 @@ main{
 #typing{
     border: none;
     outline: none;
+    position: relative;
+    z-index: 1000;
+}
+
+#cl_wrapper{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    z-index: 1001;
+    pointer-events: none;
+}
+
+#typing_clearer{
+    height: 24px;
+    margin-top: 7px;
+    margin-right: 7px;
+    cursor: pointer;
+    pointer-events: all;
 }
 
 #cent-for{
@@ -171,12 +200,6 @@ hr{
     display: flex;
     align-items: center;
     justify-content: center;
-    user-select: none;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none; 
-    -khtml-user-select: none;
-    -moz-user-select: none; 
-    -ms-user-select: none;
 }
 
 #typing[contenteditable=true]:empty:before{
@@ -328,6 +351,9 @@ button:hover{
             <div id="_typing">
                 <div class="d poaAS OOs" id="typing_wrapper_x">
                     <div class="cent" id="typing_wrapper">
+                        <div class="private" id="cl_wrapper" contenteditable="false">
+                            <img id="typing_clearer" src="./img/clear.png">
+                        </div>
                         <!--user typing place-->
                         <div class="cent" id="typing" contenteditable="true" placeholder="URL | Google Search"></div>
                     </div>
@@ -358,7 +384,7 @@ button:hover{
                 <h3><a href="/">← 戻る</a></h3>
             </div>
         </div>
-        <div id="cr">
+        <div class="private" id="cr">
             <h5>Copyright © 2023 KANOKIw Inc. All Rights Reserved.</h5>
         </div>
         <sub>
@@ -370,6 +396,7 @@ var submitter_gg = document.getElementById("cent-gg");
 var cent_for = document.getElementById("cent-for");
 var _history = document.getElementById("cent-hist");
 var _history_bc = document.getElementById("hist_viewer_back");
+var typing_clearer = document.getElementById("typing_clearer");
 var wrong = getParam("wrong");
 var notifier_count = 0;
 var GOOLE = `<!--
@@ -440,7 +467,7 @@ function getParam(name, url)
     $("#aw").show();
 }();
 
-!function(t, s, c, j, h, i)
+!function(t, s, c, j, h, i, z)
 {
     t.addEventListener("input", function(event){
         var q = this.textContent;
@@ -497,7 +524,10 @@ function getParam(name, url)
     });
     h.addEventListener("click", showHist);
     i.addEventListener("click", closeHist);
-}(typing, submitter, submitter_gg, cent_for, _history, _history_bc);
+    z.addEventListener("click", function(){
+        t.textContent = "";
+    });
+}(typing, submitter, submitter_gg, cent_for, _history, _history_bc, typing_clearer);
 
 !function()
 {   
