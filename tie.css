@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 :root{
     --font-display: "gg sans","Hiragino Sans","\30D2\30E9\30AE\30CE\89D2\30B4 ProN W3","Hiragino Kaku Gothic ProN",メイリオ,Meiryo,Osaka,"MS PGothic","Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     --color-url: #1995dc;
@@ -24,6 +26,10 @@ py-script, py-terminal, py-splashscreen{
     display: none;
 }
 
+main{
+    font-family: var(--font-display);
+}
+
 .cent{
     margin: 7px;
 }
@@ -34,6 +40,28 @@ py-script, py-terminal, py-splashscreen{
     border: solid 3px var(--color-primary);;
     color: var(--color-url);
     overflow-wrap: break-word;
+    background-color: rgb(51, 0, 0);
+    text-decoration: underline;
+}
+
+.border_notice{
+    animation-name: notice;
+    animation-duration: 1s;
+}
+
+@keyframes notice{
+    from {border-color: greenyellow;}
+    to {border-color: var(--color-primary);}
+}
+
+.border_warn{
+    animation-name: warn;
+    animation-duration: 1s;
+}
+
+@keyframes warn{
+    from {border-color: red;}
+    to {border-color: var(--color-primary);}
 }
 
 #typing{
@@ -45,14 +73,15 @@ py-script, py-terminal, py-splashscreen{
     margin-top: 10px;
     font-size: 2rem;
     font-weight: 600;
-    font-family: var(--font-display)
+    font-family: var(--font-display);
 }
 
 #fail-c{
     display: none;
+    font-family: var(--font-display);
 }
 
-#fail-c h1{
+#fail-c h1, h3{
     text-align: center;
 }
 
@@ -73,7 +102,7 @@ py-script, py-terminal, py-splashscreen{
 }
 
 #cent-submit{
-    border: solid 2px var(--color-primary);;
+    border: solid 2px var(--color-primary);
     padding: 10px;
     font-size: 1rem;
     font-weight: 600;
@@ -81,8 +110,17 @@ py-script, py-terminal, py-splashscreen{
     color: var(--color-url);
 }
 
+#cent-gg{
+    border: solid 2px var(--color-primary);
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: white;
+}
+
 #next_dx{
     border: solid 3px var(--color-gold);
+    background-color: var(--color-primary);
 }
 
 hr{
@@ -101,4 +139,16 @@ hr{
     -khtml-user-select: none;
     -moz-user-select: none; 
     -ms-user-select: none;
+}
+
+#typing[contenteditable=true]:empty:before{
+    content: attr(placeholder);
+    color: #aaa;
+    text-decoration: none;
+    pointer-events: none;
+    display: block;
+}
+
+iframe{
+    background-color: white;
 }

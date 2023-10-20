@@ -11,6 +11,7 @@ const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 var jquery = require("jquery");
 var crypto = require("crypto");
+const cheerio = require('cheerio');
 
 
 var Random = /** @class */ (function () {
@@ -76,7 +77,23 @@ function getJSON(path, encoding){
     if (!encoding){
         encoding = "utf-8";
     }
-    return JSON.parse(fs.readFileSync(path), encoding);
+    return JSON.parse(fs.readFileSync(path, encoding));
+}
+
+
+function toAbsPath(url, html){
+    var _url = new URL(url);
+    var domain = _url.origin;
+    // startsWith("/[^/]");
+    html = html.replaceAll(/(src|href|content)="\/([^\/].*?)"/g, '$1="' + domain + '/$2"');
+    html = html.replaceAll(/url\("\/([^\/].+)"\)/g, 'url("' + domain + '/$1")');
+    // startsWith("./");
+    html = html.replaceAll(/(src|href|content)="\.\/(.*?)"/g, '$1="' + url.substring(0, url.lastIndexOf("/")) + '/$2"');
+    html = html.replaceAll(/url\("\.\/(.+)"\)/g, 'url("' + url.substring(0, url.lastIndexOf("/")) + '/$1")');
+    // startsWith("//");
+    html = html.replaceAll(/(src|href|content)="\/\/(.*?)"/g, '$1="' + _url.protocol + '//$2"');
+    html = html.replaceAll(/url\("\/\/(.+)"\)/g, 'url("' +  _url.protocol + '//$1")');
+    return html;
 }
 
 
@@ -109,38 +126,44 @@ app.post("/fetch-for-ipad", async function(req, res){
     var body = req.body;
     var url = body.url;
     var co_path = "./.tie_preview_iframes/.co.json";
+
     try {
-        var domain = new URL(url).origin;
         var response = await fetch(url);
         var rn = random.string(16);
         var all = getJSON(co_path);
         var text = await response.text();
         var path = "./.tie_preview_iframes/"+rn+".html";
         var client_path = path.slice(1);
-        var $ = jquery((new JSDOM(text).window));
-        var title = $("title").text();
+        
+        console.log(`${time()} GET: ${url} --s=${rn}`);
+        url = response.url;
+        text = toAbsPath(url, text);
 
-        if (domain.includes("//google.")){
-            domain = domain.replace("//google.", "//www.google.");
-        }
-        // startsWith("/");
-        text = text.replaceAll(/(src|href)="\/(.*?)"/g, '$1="' + domain + '/$2"');
-        text = text.replaceAll(/url\("\/(.+)"\)/g, 'url("' + domain + '/$1")');
-        // startsWith("./");
-        text = text.replaceAll(/(src|href)="\.\/(.*?)"/g, '$1="' + url.substring(0, url.lastIndexOf("/")) + '/$2"');
-        text = text.replaceAll(/url\("\.\/(.+)"\)/g, 'url("' + url.substring(0, url.lastIndexOf("/")) + '/$1")');
+        var $ = jquery((new JSDOM(text).window));
+        var ch = cheerio.load(text);
+        var title = $("title").text();
+        var favicon_url = ch('link[rel="icon"]').attr("href") || ch('link[rel="shortcut icon"]').attr("href");
+
+        if (favicon_url == undefined)
+            favicon_url = null;
+        if ((new URL(url)).hostname.includes("google") && favicon_url == null)
+            favicon_url = "https://cdn.icon-icons.com/icons2/2642/PNG/512/google_logo_g_logo_icon_159348.png";
         await fs.writeFileSync(path, text);
 
-        all[rn] = {path: client_path, url: url.replaceAll(" ", ""), title: title};
+        all[rn] = {path: client_path, url: url.replaceAll(" ", ""), title: title, favicon_url: favicon_url};
         fs.writeFileSync(co_path, JSON.stringify(all, null, 2), "utf-8");
-        res.send({original: text, iframe: client_path, fy: rn});
+        res.status(200).send({original: text, iframe: client_path, fy: rn, path: client_path, url: url.replaceAll(" ", ""), title: title, favicon_url: favicon_url});
     } catch (error){
-        console.log(error)
+        console.log(time(), error);
         res.status(500).send("Error: " + error.message);
     }
 });
 
-app.get('/find/:stringid', (req, res) => {
+app.get("/view", (req, res) => {
+    res.sendFile(__dirname + "/view.html");
+});
+
+app.get("/find/:stringid", (req, res) => {
     var co_path = "./.tie_preview_iframes/.co.json";
     var stringid = req.params.stringid;
     var data = getJSON(co_path)[stringid];
@@ -153,7 +176,7 @@ app.get('/find/:stringid', (req, res) => {
     }
 });
 
-app.get('/iframe/:stringid', (req, res) => {
+app.get("/iframe/:stringid", (req, res) => {
     var co_path = "./.tie_preview_iframes/.co.json";
     var stringid = req.params.stringid; 
     var data = getJSON(co_path)[stringid];
@@ -163,7 +186,7 @@ app.get('/iframe/:stringid', (req, res) => {
         var url = data.url
         res.send({path: re, url: url, title: data.title});
     } else {
-        res.status(500).send("Error: undefined");
+        res.status(500).sendFile(__dirname + "/src/lost/index.html");
     }
 });
 

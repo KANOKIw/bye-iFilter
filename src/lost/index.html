@@ -3,25 +3,30 @@
     <head>
         <meta charset="utf-8">
         <title>LOST</title>
-        <style>
+        <link rel="icon" href="/img/.pri/favicon.ico">
+        <style id="wwv">
             @charset "UTF-8";
             @font-face {
                 font-family: "dot";
                 src: url("/src/lost/Nosutaru-dotMPlusH-10-Regular.ttf");
             }
-            body {
+
+            html{
+                font-family: "gg sans","Hiragino Sans","\30D2\30E9\30AE\30CE\89D2\30B4 ProN W3","Hiragino Kaku Gothic ProN",メイリオ,Meiryo,Osaka,"MS PGothic","Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+            }
+
+            * {
                 font-family: "dot";
-                background-image: url("/src/lost/back.png");
-                background-repeat: repeat;
-                background-size: 100%;
+                margin: 0;
+                color: black;
                 user-select: none;
                 -webkit-touch-callout: none;
                 -webkit-user-select: none; 
                 -khtml-user-select: none;
                 -moz-user-select: none; 
                 -ms-user-select: none;
-                margin: 0;
             }
+
             #topTitle{
                 font-size: 220%;
                 font-weight: bold;
@@ -69,9 +74,51 @@
                     <h1>そうに決まってる</h1>
                 </div>
                 <div style="width: 20%; margin: 20px;">
-                    <img src="/src/lost/egg.png" style="width: 100%; height: auto;">
+                    <h3 style="margin: 0; margin-bottom: 10px; text-align: center;">(垂れ流し, bg可)</h3>
+                    <audio id="HFTFE" controls loop style="width: 100%;"></audio>
+                    <img id="w" style="width: 100%; height: auto;">
                 </div>
             </div>
         </div>
     </body>
+    <script>
+if (Math.random() > 0.25){
+    document.getElementById("w").src = "/src/lost/egg.png";
+    document.getElementById("HFTFE").src = "/src/lost/HFTFE.mp3";
+    document.getElementById("wwv").innerHTML += `
+        body {
+            font-family: "dot";
+            background-image: url("/src/lost/back.png");
+            background-repeat: repeat;
+            background-size: 100%;
+            margin: 0;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none; 
+            -khtml-user-select: none;
+            -moz-user-select: none; 
+            -ms-user-select: none;
+        }
+    `;
+} else {
+    document.getElementById("w").src = "/src/lost/si.png";
+    document.getElementById("HFTFE").src = "/src/lost/SDW.mp3";
+    document.getElementById("wwv").innerHTML += `
+        body {
+            font-family: "dot";
+            background-image: url("/src/lost/st.png");
+            background-repeat: repeat;
+            background-size: 100%;
+            margin: 0;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-user-select: none; 
+            -khtml-user-select: none;
+            -moz-user-select: none; 
+            -ms-user-select: none;
+        }
+    `;
+}
+document.querySelectorAll("script").forEach(o => o.remove());
+    </script>
 </html>

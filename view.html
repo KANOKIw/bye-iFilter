@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="KANOKIw | viewer access avoiding iFIlter boi">
+        <meta property="og:description" content="...">
+        <meta property="og:site_name" content="KANOKIw">
+        <meta property="og:image" content="http://kanokiw.com/img/.pri/coturnix.png">
+        <meta property="og:locale" content="ja">
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="@KUMANKENw">
+        <meta name="twitter:creator" content="@KUMANKENw">
+        <meta name="twitter:title" content="KANOKIw | viewer access avoiding iFIlter boi">
+        <meta name="twitter:description" content="...">
+        <meta name="twitter:image" content="http://kanokiw.com/img/.pri/coturnix.png">
+        <meta name="theme-color" content="#dfa920" data-react-helmet="true">
+        <title>Browser | KANOKIw</title>
+        <link rel="icon" href="/img/.pri/favicon.ico">
+        <title>viewer</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <style>
+@charset "UTF-8";
+
+:root{
+    --font-display: "gg sans","Hiragino Sans","\30D2\30E9\30AE\30CE\89D2\30B4 ProN W3","Hiragino Kaku Gothic ProN",メイリオ,Meiryo,Osaka,"MS PGothic","Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+    --color-url: #1995dc;
+    --color-gold: goldenrod;
+    --color-primary: #dcddde;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #36393f;
+    color: var(--color-primary);
+}
+
+a{
+    text-decoration: underline;
+    color: var(--color-url);
+}
+
+py-script, py-terminal, py-splashscreen{
+    display: none;
+}
+
+main{
+    font-family: var(--font-display);
+}
+
+.cent{
+    margin: 7px;
+}
+
+#typing_wrapper{
+    width: 90vw;
+    height: auto;
+    border: solid 3px var(--color-primary);;
+    color: var(--color-url);
+    overflow-wrap: break-word;
+    background-color: rgb(51, 0, 0);
+    text-decoration: underline;
+}
+
+.border_notice{
+    animation-name: notice;
+    animation-duration: 1s;
+}
+
+@keyframes notice{
+    from {border-color: greenyellow;}
+    to {border-color: var(--color-primary);}
+}
+
+.border_warn{
+    animation-name: warn;
+    animation-duration: 1s;
+}
+
+@keyframes warn{
+    from {border-color: red;}
+    to {border-color: var(--color-primary);}
+}
+
+#typing{
+    border: none;
+    outline: none;
+}
+
+#cent-for{
+    margin-top: 10px;
+    font-size: 2rem;
+    font-weight: 600;
+    font-family: var(--font-display);
+}
+
+#fail-c{
+    display: none;
+    font-family: var(--font-display);
+}
+
+#fail-c h1, h3{
+    text-align: center;
+}
+
+#faile, #fail-c{
+    width: 100vw;
+    height: auto;
+}
+
+#previewer{
+    width: 100vw;
+    height: 100vh;
+}
+
+#innerIFRAME{
+    border: none;
+    width: 100%;
+    height: 100vh;
+}
+
+#cent-submit{
+    border: solid 2px var(--color-primary);
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: var(--color-gold);
+    color: var(--color-url);
+}
+
+#cent-gg{
+    border: solid 2px var(--color-primary);
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: white;
+}
+
+#next_dx{
+    border: solid 3px var(--color-gold);
+    background-color: var(--color-primary);
+}
+
+hr{
+    margin: 10px;
+}
+
+#cr{
+    width: 100vw;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none; 
+    -khtml-user-select: none;
+    -moz-user-select: none; 
+    -ms-user-select: none;
+}
+
+#typing[contenteditable=true]:empty:before{
+    content: attr(placeholder);
+    color: #aaa;
+    text-decoration: none;
+    pointer-events: none;
+    display: block;
+}
+
+iframe{
+    background-color: white;
+}
+        </style>
+    </head>
+    <body style="width: 100vw; height: auto;">
+        <main id="aw" style="display: none;">
+            <div id="_typing">
+                <div class="cent" id="typing_wrapper">
+                    <!--user typing place-->
+                    <div class="cent" id="typing" contenteditable="true" placeholder="URL | Google Search"></div>
+                </div>
+                <p class="cent ghFG" id="cent-for" for="cent-input"></p>
+                <button class="cent ghFG cent-btn" id="cent-submit" type="button">GET</button>
+                <button class="cent ghFG cent-btn" id="cent-gg" type="button">
+                    <div class="tablerrr" id="ggl_btn"></div>
+                </button>
+                <br>
+            </div>
+            <p id="a"></p>
+        </main>
+        <div id="fail-c" style="align-items: center; justify-content: center;">
+            <div style="width: 80vw;">
+                <br>
+                <h1>Oops!</h1>
+                <h1>Something went wrong.</h1>
+                <h3 id="pr_u"></h3>
+                <br>
+                <h3><a href="/">← 戻る</a></h3>
+            </div>
+        </div>
+        <div id="cr">
+            <h5>Copyright © 2023 KANOKIw Inc. All Rights Reserved.</h5>
+        </div>
+        <sub>
+            <script id="__NEXT_DATA__">
+function getParam(name, url)
+{
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+!function()
+{
+    var s = getParam("s");
+
+    $.ajax({
+        url: "/iframe/"+s,
+        type: "GET",
+        timeout: 10_000,
+    })
+    .done(d)
+    .fail(f);
+    function d(data){
+        var path = data.path;
+        var u = data.url;
+        var title = data.title;
+        var a = "";
+
+        if (title){
+            $("title").text(`${title} | Browser | KANOKIw`);
+        }
+        if (u.startsWith("http://")){
+            var ex = "https"+u.slice(4);
+            a = `<a href="${u}">${u}</a><span style="color: var(--color-primary);;">&nbsp;|&nbsp;</span><a href="${ex}">${ex}</a>`
+        } else {
+            a = `<a href="${u}">${u}</a>`;
+        }
+        write_iFrame(path, s);
+        $("#typing").html(a).attr("contenteditable", "false");
+        $("#aw").show();
+    }
+    function f(error){
+        document.getElementById("aw").style.display = "none";
+        document.getElementById("fail-c").style.display = "none";
+        document.getElementById("cr").style.display = "none";
+        $("body").append(error.responseText);
+        ntf();
+    }
+}();
+
+function write_iFrame(path, id)
+{
+    var main = document.getElementById("aw");
+    $(".success_ind").show();
+    $(".ghFG").remove();
+    $("#cr").hide();
+    main.innerHTML = main.innerHTML + `
+        <div id="next_dx">
+            <a class="success_ind" id="showOnblank" target="_blank">別ページで表示する(全画面)</a>&nbsp;&nbsp;
+            <a class="success_ind" href="http://kanokiw.com/">新しいページを取得する</a>
+        </div>
+        <hr>
+        <iframe 
+            id="innerIFRAME"
+            title="Inline Frame Example"
+            frameborder="no"
+            height="100"
+            src="http://kanokiw.com/find/${id}"></iframe>
+    `;
+    document.getElementById("showOnblank").href = "http://preview.kanokiw.com/find/"+id;
+    $(window).on("load resize",function(){
+        $("main").css("width",  $(window).width());
+        $("main").css("height",  $(window).height());
+    });
+}
+
+function ntf(){
+    !function(){
+        if (Math.random() > 0.25){
+            document.getElementById("w").src = "/src/lost/egg.png";
+            document.getElementById("HFTFE").src = "/src/lost/HFTFE.mp3";
+            document.getElementById("wwv").innerHTML += `
+                body {
+                    font-family: "dot";
+                    background-image: url("/src/lost/back.png");
+                    background-repeat: repeat;
+                    background-size: 100%;
+                    margin: 0;
+                    user-select: none;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none; 
+                    -khtml-user-select: none;
+                    -moz-user-select: none; 
+                    -ms-user-select: none;
+                }
+            `;
+        } else {
+            document.getElementById("w").src = "/src/lost/si.png";
+            document.getElementById("HFTFE").src = "/src/lost/SDW.mp3";
+            document.getElementById("wwv").innerHTML += `
+                body {
+                    font-family: "dot";
+                    background-image: url("/src/lost/st.png");
+                    background-repeat: repeat;
+                    background-size: 100%;
+                    margin: 0;
+                    user-select: none;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none; 
+                    -khtml-user-select: none;
+                    -moz-user-select: none; 
+                    -ms-user-select: none;
+                }
+            `;
+        }
+    }();
+}
+            </script>
+        </sub>
+    </body>
+</html>
