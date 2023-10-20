@@ -430,6 +430,9 @@ function getParam(name, url)
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+/**
+ * only do show(main);
+*/
 !function(){
     var s = getParam("s");
 
