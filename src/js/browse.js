@@ -305,7 +305,7 @@ function showHist()
                     <div>
                         <span class="hist_title">${title}</span>
                         <div class="hist_url"><a href="${view}">${view}</a></div>
-                        <div class="hist_url">Original: <a href="${url}">${url}</a></div>
+                        <div class="hist_url">Origin: <a href="${url}">${url}</a></div>
                     </div>
                 </div>
             </li>
