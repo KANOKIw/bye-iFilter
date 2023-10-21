@@ -33,7 +33,7 @@
     setInterval(function(){
         for (var a of document.getElementsByTagName("a")){
             var h = a.href;
-            var t;
+            var t = 0;
             if (h == null || ((typeof h === "string" || h instanceof String) && h.startsWith("http://kanokiw.com")))
                 continue;
             for (var p of ["http", "https"]){
@@ -42,10 +42,10 @@
                         h.startsWith(p+"://www.google."+l+"/url")
                         || h.startsWith(p+"://google."+l+"/url")
                     ){
-                        var base = h;
-                        h = g("url", base);
+                        var b = h;
+                        h = g("url", b);
                         if (h == null)
-                            h = g("q", base);
+                            h = g("q", b);
                         h = decodeURIComponent(h);
                         t = !0;
                         break;
@@ -74,7 +74,6 @@
             .done(d)
             .fail(f);
             function d(t){
-                console.log(t)
                 var view = "http://kanokiw.com/view?s="+s;
 
                 for (var c of v()){

@@ -178,7 +178,7 @@ app.post("/fetch-for-ipad", async function(req, res){
     var url = body.url;
     var co_path = "./.tie_preview_iframes/.co.json";
     var original_url = url;
-    var t;
+    var t = 0;
 
     for (var p of ["http", "https"]){
         for (var l of ["co.jp", "com"]){
@@ -194,6 +194,8 @@ app.post("/fetch-for-ipad", async function(req, res){
                 if (url == null)
                     url = getParam("q", base);
                 url = decodeURIComponent(url);
+                t = !0;
+                break;
             }
         }
         if (t) break;
