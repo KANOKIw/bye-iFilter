@@ -129,6 +129,10 @@ main{
     font-family: var(--font-display);
 }
 
+#paste_form_sub_{
+    cursor: pointer;
+}
+
 #fail-c{
     display: none;
     font-family: var(--font-display);

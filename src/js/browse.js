@@ -110,10 +110,13 @@ function getParam(name, url)
         $("#googlerBtn").show();
         getHTML(url);
     });
-    j.addEventListener("click", function(){
-        t.focus();
-        doAnimation("#typing_wrapper", "border_notice");
-    });
+    !function(){
+        j.innerHTML = `<span id="paste_form_sub_">サイトのリンクをペースト | ${GOOLE}検索</span>`;
+        document.getElementById("paste_form_sub_").addEventListener("click", function(){
+            t.focus();
+            doAnimation("#typing_wrapper", "border_notice");
+        });
+    }();
     h.addEventListener("click", showHist);
     i.addEventListener("click", closeHist);
     z.addEventListener("click", function(){t.textContent = "";});
@@ -121,7 +124,6 @@ function getParam(name, url)
 
 !function()
 {   
-    document.getElementById("cent-for").innerHTML = `サイトのリンクをペースト | ${GOOLE}検索`;
     document.getElementById("ggl_btn").innerHTML = GOOLE;
     $(".loading_gif").css("width", $(".cent").height() + 14 + "px");
     $("#typing_clearer").show();
@@ -305,7 +307,7 @@ function showHist()
             </li>
         `);
     } else {
-        $("#hist_user_display").append(`
+        $("#hist_user_display").prepend(`
             <li class="hist_element">
                 <button class="hist_deleter">
                     <span class="hist_deleter_textContent">Clear history</span>
