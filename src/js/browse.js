@@ -9,6 +9,7 @@ var typing_clearer = document.getElementById("typing_clearer");
 var wrong = getParam("wrong");
 var fb = getParam("fb");
 var notifier_count = 0;
+var HIST_OPENED = false;
 var GOOLE = `<!--
     --><span style="color: #4285F4;">G</span><!--
     --><span style="color: #DB4437;">o</span><!--
@@ -22,30 +23,6 @@ if (wrong){
     var u = decodeURI(getParam("u"));
     showSmthWentWrong(u);
     throw new Error();
-}
-
-if (fb){
-    var s = getParam("s");
-    $.ajax({
-        url: "/iframe-data",
-        data: {id: s},
-        type: "POST",
-        timeout: 10_000,
-    })
-    .done(d)
-    .fail(f);
-    function d(data){
-        var main = document.getElementById("aw");
-        var view = `http://kanokiw.com/view?s=${s}`;
-
-        for (var di of getHist()){
-            if (ea.id == s)
-                return;
-        }
-        addToHist({title: data.title, url: data.url, view: view,
-            favicon_url: data.favicon_url, id: s, timestamp: data.timestamp});
-    }
-    function f(){}
 }
 
 !function(){
@@ -200,6 +177,13 @@ function getParam(name, url)
         $("#confirm-clear-overlay").hide();
         $("body").removeClass("no_scroll");
     }
+    var prev_ = getHist();
+    setInterval(function(){
+        var p = getHist();
+        if (prev_.length != p.length && HIST_OPENED)
+            showHist();
+        prev_ = p;
+    }, 15);
 }();
 
 /**
@@ -316,6 +300,7 @@ function addToHist(jsonData)
 function showHist()
 {
     var hist = getHist();
+    HIST_OPENED = true;
     $("#_typing").hide();
     $(".hist_viewer").show();
     $("#hist_user_display").empty();
@@ -401,7 +386,8 @@ function noticeHist(mode, message, remainDurtion)
 }
 
 function closeHist()
-{
+{   
+    HIST_OPENED = false;
     $("#_typing").show();
     $(".hist_viewer").hide();
 }

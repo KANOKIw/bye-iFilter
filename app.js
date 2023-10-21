@@ -136,14 +136,14 @@ function addInterval(html){
         function getParam(name, url)
         {
             if (!url) url = window.location.href;
-            name = name.replace(/[\[\]]/g, "\\$&");
+            name = name.replace(/[[]]/g, "\$&");
             var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
                 results = regex.exec(url);
             if (!results) return null;
             if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\+/g, " "));
+            return decodeURIComponent(results[2].replace(/\\+/g, " "));
         }
-        setInterval(function({
+        setInterval(function(){
             for (var a of document.getElementsByTagName("a")){
                 var href = a.href;
                 if (href == null)
@@ -161,15 +161,16 @@ function addInterval(html){
                     || href.startsWith("http://google.com/url")
                     ){
                     var base = href;
-                    href = getParam("url", href);
+                    href = getParam("url", base);
                     if (href == null)
-                        href = getParam("q", href);
+                        href = getParam("q", base);
                     href = decodeURIComponent(href);
                 }
                 var nhref = "http://kanokiw.com/browse?u="+encodeURIComponent(href);
                 a.href = nhref;
+                a.target = "_parent";
             }
-        }), 15);
+        }, 15);
         </script>
     `;
     return html;
@@ -243,9 +244,10 @@ app.post("/fetch-for-ipad", async function(req, res){
 });
 
 app.post("/iframe-data", (req, res) => {
+    var co_path = "./.tie_preview_iframes/.co.json";
     try{
         var id = req.body.id;
-        var d = getJSON():
+        var d = getJSON(co_path);
         var data = d[id];
         res.status(200).send(
             {title: data.title, url: data.url,
@@ -294,6 +296,7 @@ app.get("/browse", async function(req, res){
         return;
     }
     var co_path = "./.tie_preview_iframes/.co.json";
+    url = decodeURIComponent(url);
     try {
         var response = await fetch(url, {method: "GET", mode: "cors", cache: "no-cache"});
         var rn = random.string(16);
@@ -321,11 +324,11 @@ app.get("/browse", async function(req, res){
         var t = _time();
         all[rn] = {path: client_path, url: url.replaceAll(" ", ""), title: title, favicon_url: favicon_url, timestamp: t};
         fs.writeFileSync(co_path, JSON.stringify(all, null, 2), "utf-8");
-        res.status(200).redirect("http://kanokiw.com/view?s="+r+"&fb=redirect");
+        res.status(200).redirect("http://kanokiw.com/view?s="+rn+"&fb=redirect");
     } catch (error){
         writeLog(time() + " " + error.stack + JSON.stringify(error, null, 2) + "\n");
         console.log(time(), error);
-        res.status(500).redirect("http:/ kanokiw.com/?wrong=wrong&u="+encodeURIComponent(url));
+        res.status(500).redirect("http://kanokiw.com/?wrong=wrong&u="+encodeURIComponent(url));
     }
 });
 

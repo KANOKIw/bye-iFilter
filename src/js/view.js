@@ -1,3 +1,4 @@
+var fb = getParam("fb");
 
 function getParam(name, url)
 {
@@ -8,6 +9,32 @@ function getParam(name, url)
     if (!results) return null;
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+if (fb){
+    var s = getParam("s");
+    $.ajax({
+        url: "/iframe-data",
+        data: {id: s},
+        type: "POST",
+        timeout: 10_000,
+    })
+    .done(d)
+    .fail(f);
+    function d(data){
+        console.log(data)
+        var view = `http://kanokiw.com/view?s=${s}`;
+
+        for (var di of getHist()){
+            if (di.id == s)
+                return;
+        }
+        addToHist({title: data.title, url: data.url, view: view,
+            favicon_url: data.favicon_url, id: s, timestamp: data.timestamp});
+    }
+    function f(error){
+        
+    }
 }
 
 !function()
@@ -79,4 +106,24 @@ function ntf(){
     !function(){
         
     }();
+}
+
+function getHist()
+{   
+    var d =[];
+    try {
+        d = JSON.parse(localStorage.getItem("__history"));
+        if (!Array.isArray(d))
+            throw new Error();
+    } catch (e){
+        return [];
+    }
+    return d;
+}
+
+function addToHist(jsonData)
+{
+    var d = getHist();
+    d.push(jsonData);
+    localStorage.setItem("__history", JSON.stringify(d));
 }
