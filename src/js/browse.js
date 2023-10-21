@@ -7,6 +7,7 @@ var _history = document.getElementById("cent-hist");
 var _history_bc = document.getElementById("hist_viewer_back");
 var typing_clearer = document.getElementById("typing_clearer");
 var wrong = getParam("wrong");
+var fb = getParam("fb");
 var notifier_count = 0;
 var GOOLE = `<!--
     --><span style="color: #4285F4;">G</span><!--
@@ -21,6 +22,26 @@ if (wrong){
     var u = decodeURI(getParam("u"));
     showSmthWentWrong(u);
     throw new Error();
+}
+
+if (fb){
+    var s = getParam("s");
+    $.ajax({
+        url: "/iframe-data",
+        data: {id: s},
+        type: "POST",
+        timeout: 10_000,
+    })
+    .done(d)
+    .fail(f);
+    function d(data){
+        var main = document.getElementById("aw");
+        var view = `http://kanokiw.com/view?s=${s}`;
+
+        addToHist({title: data.title, url: data.url, view: view,
+            favicon_url: data.favicon_url, id: s, timestamp: data.timestamp});
+    }
+    function f(){}
 }
 
 !function(){
@@ -197,7 +218,8 @@ function getHTML(code)
         var red = `/view?s=${id}`;
         var view = `http://kanokiw.com/view?s=${id}`;
 
-        addToHist({title: data.title, url: data.url, view: view, favicon_url: data.favicon_url, id: id, timestamp: time()});
+        addToHist({title: data.title, url: data.url, view: view,
+            favicon_url: data.favicon_url, id: id, timestamp: data.timestamp});
         hideLoadingSymbols();
         window.location.href = red;
     }
