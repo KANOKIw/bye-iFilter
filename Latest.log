@@ -7,3 +7,8 @@ WARN: [2023-09-21 15:42:07] Raw: /raw/NxdvqMUOpmS9WzMq --s=NxdvqMUOpmS9WzMq
     404: NOT FOUND
 WARN: [2023-09-21 15:42:29] Raw: /raw/NxdvqMUOpmS9WzMq?a=w --s=NxdvqMUOpmS9WzMq
     404: NOT FOUND
+INFO: [2023-09-21 15:49:38] GET: https://www.google.co.jp/search?q=ii&oq=ii+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=E54cISrPlnQ8K3BNINFO: [2023-09-21 15:50:23] Raw: /raw/yGgie4VhZbxilGu5 --s=yGgie4VhZbxilGu5
+INFO: [2023-09-21 15:50:27] Raw: /raw/yGgie4VhZbxilGu5 --s=yGgie4VhZbxilGu5
+INFO: [2023-09-21 15:51:38] Raw: /raw/yGgie4VhZbxilGu5 --s=yGgie4VhZbxilGu5
+INFO: [2023-09-21 15:52:15] GET: https://www.google.co.jp/search?q=w&oq=w+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=9P6cCClXvni1Ri3fINFO: [2023-09-21 15:52:58] Raw: /raw/yGgie4VhZbxilGu5 --s=yGgie4VhZbxilGu5
+INFO: [2023-09-21 15:53:08] Raw: /raw/yGgie4VhZbxilGu5 --s=yGgie4VhZbxilGu5

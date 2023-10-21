@@ -84,8 +84,8 @@ function write_iFrame(path, id)
     $("#cr").hide();
     main.innerHTML = main.innerHTML + `
         <div id="next_dx">
-            <a class="success_ind" id="showOnblank" target="_blank">別ページで表示する(全画面)</a>&nbsp;&nbsp;
-            <a class="success_ind" href="http://kanokiw.com/">新しいページを取得する</a>&nbsp;&nbsp;
+            <a class="success_ind" href="http://kanokiw.com/">新しいページを取得する</a>
+            <a class="success_ind" id="showOnblank" target="_blank">別ページで表示する(全画面)</a>
             <a class="success_ind" id="showRawOnblank" target="_blank">Raw</a>
         </div>
         <hr>

@@ -15,6 +15,10 @@
                 font-family: "gg sans","Hiragino Sans","\30D2\30E9\30AE\30CE\89D2\30B4 ProN W3","Hiragino Kaku Gothic ProN",メイリオ,Meiryo,Osaka,"MS PGothic","Noto Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
             }
 
+            a{
+                color: #1995dc;
+            }
+            
             * {
                 font-family: "dot";
                 margin: 0;
@@ -89,7 +93,7 @@ if (Math.random() > 0.25){
     document.getElementById("ev-p").innerHTML = `
         <h1>迷子だなぁ</h1>
         <h1>そうに決まってる</h1>
-        <h3 style="margin: 10px;"><a href="/">← Topへ</a></h3>
+        <h3 style="margin: 10px;"><a href="#" onclick="window.history.back(); return false;">← 戻る</a></h3>
     `;
     document.getElementById("wwv").innerHTML += `
         body {
@@ -112,7 +116,7 @@ if (Math.random() > 0.25){
     document.getElementById("ev-p").innerHTML = `
         <h1>てめぇ－</h1>
         <h1>ここどこだと思ってんじゃごれぇー</h1>
-        <h3 style="margin: 10px;"><a href="/">← Topへ</a></h3>
+        <h3 style="margin: 10px;"><a href="#" onclick="window.history.back(); return false;">← 戻る</a></h3>
     `;
     document.getElementById("wwv").innerHTML += `
         body {

@@ -180,6 +180,11 @@ main{
     border-radius: 10px;
 }
 
+.success_ind{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
 #next_dx{
     border: solid 3px var(--color-gold);
     background-color: white;
