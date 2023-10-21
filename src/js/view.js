@@ -31,7 +31,6 @@ function getParam(name, url)
         .done(d)
         .fail(f);
         function d(data){
-            console.log(data)
             var view = `http://kanokiw.com/view?s=${s}`;
 
             for (var di of getHist()){

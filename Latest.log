@@ -64,3 +64,20 @@ INFO: [2023-09-21 19:54:31] GET: https://www.google.co.jp/search?q=wa&oq=wa+&sou
     at node:net:322:12
     at TCP.done (node:_tls_wrap:588:7){}
 INFO: [2023-09-21 19:55:36] GET: https://www.google.co.jp/search?q=waaa&oq=waaa+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=WTGdH7tBvRxfCkpg
+INFO: [2023-09-21 19:58:49] GET: https://call.omnidatabank.jp/blog/localstorage/ --s=zGvMTa9fE7Q8vRaq
+INFO: [2023-09-21 21:34:49] GET: https://www.google.co.jp/search?q=wa&oq=wa+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=CxoTDxqEqWXHdIyw
+[2023-09-21 21:34:52] TypeError: terminated
+    at Fetch.onAborted (node:internal/deps/undici/undici:11323:53)
+    at Fetch.emit (node:events:513:28)
+    at Fetch.terminate (node:internal/deps/undici/undici:10578:14)
+    at Object.onError (node:internal/deps/undici/undici:11418:36)
+    at Request.onError (node:internal/deps/undici/undici:8210:31)
+    at errorRequest (node:internal/deps/undici/undici:10264:17)
+    at TLSSocket.onSocketClose (node:internal/deps/undici/undici:9710:9)
+    at TLSSocket.emit (node:events:525:35)
+    at node:net:322:12
+    at TCP.done (node:_tls_wrap:588:7){}
+INFO: [2023-09-21 21:35:22] GET: https://www.google.co.jp/search?q=waaaa&oq=waaaa+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=3bKsWdajlrKPejmX
+INFO: [2023-09-21 21:36:41] GET: https://www.google.co.jp/search?q=gggggg&oq=gggggg+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=60MQrg2gWa7Dv7W4
+INFO: [2023-09-21 21:37:27] GET: https://www.google.co.jp/search?q=yahoo%2Btie&oq=yahoo%2Btie+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=nC6YHf5QbxtSZfTY
+INFO: [2023-09-21 21:37:53] Raw: /raw/UiU69aJkgWQ6NVYz --s=UiU69aJkgWQ6NVYz
