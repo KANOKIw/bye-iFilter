@@ -85,7 +85,8 @@ function write_iFrame(path, id)
     main.innerHTML = main.innerHTML + `
         <div id="next_dx">
             <a class="success_ind" id="showOnblank" target="_blank">別ページで表示する(全画面)</a>&nbsp;&nbsp;
-            <a class="success_ind" href="http://kanokiw.com/">新しいページを取得する</a>
+            <a class="success_ind" href="http://kanokiw.com/">新しいページを取得する</a>&nbsp;&nbsp;
+            <a class="success_ind" id="showRawOnblank" target="_blank">Raw</a>
         </div>
         <hr>
         <iframe 
@@ -96,6 +97,7 @@ function write_iFrame(path, id)
             src="http://kanokiw.com/find/${id}"></iframe>
     `;
     document.getElementById("showOnblank").href = "http://preview.kanokiw.com/find/"+id;
+    document.getElementById("showRawOnblank").href = "http://preview.kanokiw.com/raw/"+id;
     $(window).on("load resize",function(){
         $("main").css("width",  $(window).width());
         $("main").css("height",  $(window).height());

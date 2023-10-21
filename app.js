@@ -206,6 +206,7 @@ app.post("/fetch-for-ipad", async function(req, res){
     var body = req.body;
     var url = body.url;
     var co_path = "./.tie_preview_iframes/.co.json";
+    var original_url = url;
 
     try {
         var response = await fetch(url, {method: "GET", mode: "cors", cache: "no-cache"});
@@ -216,6 +217,7 @@ app.post("/fetch-for-ipad", async function(req, res){
         var client_path = path.slice(1);
         
         console.log(`${time()} GET: ${url} --s=${rn}`);
+        writeLog(`INFO: ${time()} GET: ${url} --s=${rn}`);
         url = response.url;
         text = toAbsPath(url, text);
         text = addInterval(text);
@@ -232,12 +234,12 @@ app.post("/fetch-for-ipad", async function(req, res){
         await fs.writeFileSync(path, text);
 
         var t = _time();
-        all[rn] = {path: client_path, url: url.replaceAll(" ", ""), title: title, favicon_url: favicon_url, timestamp: t};
+        all[rn] = {path: client_path, url: original_url.replaceAll(" ", ""), title: title, favicon_url: favicon_url, timestamp: t};
         fs.writeFileSync(co_path, JSON.stringify(all, null, 2), "utf-8");
         res.status(200).send({original: text, iframe: client_path, fy: rn, path: client_path,
-            url: url.replaceAll(" ", ""), title: title, favicon_url: favicon_url, timestamp: t});
+            url: original_url.replaceAll(" ", ""), title: title, favicon_url: favicon_url, timestamp: t});
     } catch (error){
-        writeLog(time() + " " + error.stack + JSON.stringify(error, null, 2) + "\n");
+        writeLog("ERROR: "+time() + " " + error.stack + JSON.stringify(error, null, 2) + "\n");
         console.log(time(), error);
         res.status(500).send("Error: " + error.message);
     }
@@ -275,6 +277,23 @@ app.get("/find/:stringid", (req, res) => {
     }
 });
 
+app.get("/raw/:stringid", (req, res) => {
+    var co_path = "./.tie_preview_iframes/.co.json";
+    var stringid = req.params.stringid;
+    var data = getJSON(co_path)[stringid];
+
+    console.log(time()+" Raw: "+stringid);
+    try{
+        var re = data.path;
+        fs.writeFileSync("./.tie_preview_iframes/rawTXT/"+stringid+".txt", fs.readFileSync("."+re))
+        writeLog("INFO: "+time()+" Raw: "+stringid+"\n");
+        res.sendFile(__dirname + "/.tie_preview_iframes/rawTXT/"+stringid+".txt");
+    } catch (e){
+        writeLog("WARN: "+time()+" Raw: "+stringid+"\n    404: NOT FOUND");
+        res.status(404).sendFile(__dirname + "/src/lost/index.html");
+    }
+});
+
 app.get("/iframe/:stringid", (req, res) => {
     var co_path = "./.tie_preview_iframes/.co.json";
     var stringid = req.params.stringid; 
@@ -297,6 +316,7 @@ app.get("/browse", async function(req, res){
     }
     var co_path = "./.tie_preview_iframes/.co.json";
     url = decodeURIComponent(url);
+    var original_url = url;
     try {
         var response = await fetch(url, {method: "GET", mode: "cors", cache: "no-cache"});
         var rn = random.string(16);
@@ -322,7 +342,7 @@ app.get("/browse", async function(req, res){
         await fs.writeFileSync(path, text);
 
         var t = _time();
-        all[rn] = {path: client_path, url: url.replaceAll(" ", ""), title: title, favicon_url: favicon_url, timestamp: t};
+        all[rn] = {path: client_path, url: original_url.replaceAll(" ", ""), title: title, favicon_url: favicon_url, timestamp: t};
         fs.writeFileSync(co_path, JSON.stringify(all, null, 2), "utf-8");
         res.status(200).redirect("http://kanokiw.com/view?s="+rn+"&fb=redirect");
     } catch (error){
