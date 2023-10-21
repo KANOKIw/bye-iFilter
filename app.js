@@ -114,6 +114,18 @@ function writeLog(msg){
 }
 
 
+function getParam(name, url)
+{
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
+
 function toAbsPath(url, html){
     var _url = new URL(url);
     var domain = _url.origin;
@@ -132,46 +144,49 @@ function toAbsPath(url, html){
 
 function addInterval(html){
     html += `
-        <script id="__THIRD_PARTY_kanokiw.com__">
-        function getParam(name, url)
-        {
-            if (!url) url = window.location.href;
-            name = name.replace(/[[]]/g, "\$&");
-            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-                results = regex.exec(url);
-            if (!results) return null;
-            if (!results[2]) return '';
-            return decodeURIComponent(results[2].replace(/\\+/g, " "));
-        }
-        setInterval(function(){
-            for (var a of document.getElementsByTagName("a")){
-                var href = a.href;
-                if (href == null)
-                    continue;
-                if (href.startsWith("http://kanokiw.com"))
-                    continue;
-                if (
-                    href.startsWith("https://www.google.co.jp/url")
-                    || href.startsWith("https://www.google.com/url")
-                    || href.startsWith("https://google.co.jp/url")
-                    || href.startsWith("https://google.com/url")
-                    || href.startsWith("http://www.google.co.jp/url")
-                    || href.startsWith("http://www.google.com/url")
-                    || href.startsWith("http://google.co.jp/url")
-                    || href.startsWith("http://google.com/url")
+<script id="__THIRD_PARTY_kanokiw.com__">
+!function()
+{
+    function g(n, u)
+    {
+        if (!u) u = window.location.href;
+        n = n.replace(/[[]]/g, "\$&");
+        var r = new RegExp("[?&]" + n + "(=([^&#]*)|&|#|$)"),
+            s = r.exec(u);
+        if (!s) return null;
+        if (!s[2]) return '';
+        return decodeURIComponent(s[2].replace(/\\+/g, " "));
+    }
+    setInterval(function(){
+        for (var a of document.getElementsByTagName("a")){
+            var h = a.href;
+            var t;
+            if (h == null || ((typeof h === "string" || h instanceof String) && h.startsWith("http://kanokiw.com")))
+                continue;
+            for (var p of ["http", "https"]){
+                for (var l of ["co.jp", "com"]){
+                    if (
+                        h.startsWith(p+"://www.google."+l+"/url")
+                        || h.startsWith(p+"://google."+l+"/url")
                     ){
-                    var base = href;
-                    href = getParam("url", base);
-                    if (href == null)
-                        href = getParam("q", base);
-                    href = decodeURIComponent(href);
+                        var base = h;
+                        h = g("url", base);
+                        if (h == null)
+                            h = g("q", base);
+                        h = decodeURIComponent(h);
+                        t = !0;
+                        break;
+                    }
                 }
-                var nhref = "http://kanokiw.com/browse?u="+encodeURIComponent(href);
-                a.href = nhref;
-                a.target = "_parent";
+                if (t) break;
             }
-        }, 15);
-        </script>
+            var f = "http://kanokiw.com/browse?u="+encodeURIComponent(h);
+            a.href = f;
+            a.target = "_parent";
+        }
+    }, 15);
+}();
+</script>
     `;
     return html;
 }
@@ -207,7 +222,26 @@ app.post("/fetch-for-ipad", async function(req, res){
     var url = body.url;
     var co_path = "./.tie_preview_iframes/.co.json";
     var original_url = url;
+    var t;
 
+    for (var p of ["http", "https"]){
+        for (var l of ["co.jp", "com"]){
+            if (
+                url != null && 
+                (
+                    url.startsWith(p+"://www.google."+l+"/url")
+                    || url.startsWith(p+"://google."+l+"/url")
+                )
+            ){
+                var base = url;
+                url = getParam("url", base);
+                if (url == null)
+                    url = getParam("q", base);
+                url = decodeURIComponent(url);
+            }
+        }
+        if (t) break;
+    }
     try {
         var response = await fetch(url, {method: "GET", mode: "cors", cache: "no-cache"});
         var rn = random.string(16);

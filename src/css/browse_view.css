@@ -338,6 +338,11 @@ button:hover{
     margin-right: 5px;
 }
 
+.loading_gif_wrapper{
+    display: flex;
+    align-items: center;
+}
+
 .loading_gif{
     display: none;
 }

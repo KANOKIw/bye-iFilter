@@ -63,35 +63,18 @@ function getParam(name, url)
         for (var s of syms){
             url = url.replaceAll(s, "");
         }
-        if (
-            url.startsWith("https://www.google.co.jp/url")
-            || url.startsWith("https://www.google.com/url")
-            || url.startsWith("https://google.co.jp/url")
-            || url.startsWith("https://google.com/url")
-            || url.startsWith("http://www.google.co.jp/url")
-            || url.startsWith("http://www.google.com/url")
-            || url.startsWith("http://google.co.jp/url")
-            || url.startsWith("http://google.com/url")
-            ){  // i-filter base url
-            var base = url;
-            url = getParam("url", base);
-            if (url == null)
-                url = getParam("q", base);
-            url = decodeURIComponent(url);
-        }
         if (!(url.startsWith("http://") || url.startsWith("https://"))){
             url = "http://"+url; // auto redirects to https
         }
         if (url.startsWith("http://www.kanokiw.com")
             || url.startsWith("http://kanokiw.com")
             || url.startsWith("http://preview.kanokiw.com")
-            || url.startsWith("www.kanokiw.com")
-            || url.startsWith("kanokiw.com")
-            || url.startsWith("preview.kanokiw.com")
             ){
             goToSmthWentWrong();
         }
-        if ((new URL(url)).origin == url)
+        var uk = {origin: ""};
+        try{uk = new URL(url);}catch(e){goToSmthWentWrong();}
+        if (uk.origin == url)
             url += "/";
         $("#getterBtn").show();
         getHTML(url);
@@ -125,7 +108,7 @@ function getParam(name, url)
 !function()
 {   
     document.getElementById("ggl_btn").innerHTML = GOOLE;
-    $(".loading_gif").css("width", $(".cent").height() + 14 + "px");
+    $(".loading_gif").css("height", $(".cent").height() + "px");
     $("#typing_clearer").show();
     $(".hist_deleter_x").on("click", function(){
         initOverlay();
