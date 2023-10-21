@@ -100,7 +100,7 @@ function getParam(name, url)
             url = getParam("url", base);
             if (url == null)
                 url = getParam("q", base);
-            url = decodeURI(url);
+            url = decodeURIComponent(url);
         }
         if (!(url.startsWith("http://") || url.startsWith("https://"))){
             url = "http://"+url; // auto redirects to https
@@ -126,7 +126,7 @@ function getParam(name, url)
             return;
         }
         q = q.replace(" ", "+");
-        q = encodeURI(q);
+        q = encodeURIComponent(q);
         var url = `https://www.google.co.jp/search?q=${q}&oq=${q}+&sourceid=${getBrowserName()}&client=${getBrowserName()}&ie=UTF-8&oe=UTF-8`;
         if ((new URL(url)).origin == url)
             url += "/";
