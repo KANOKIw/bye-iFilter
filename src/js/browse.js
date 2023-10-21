@@ -232,7 +232,7 @@ function write_iFrame(path, id)
 
 function goToSmthWentWrong(u)
 {
-    window.location.href = `/?wrong=wrong&u=${encodeURI(u)}`;
+    window.location.href = `/?wrong=wrong&u=${encodeURIComponent(u)}`;
 }
 
 function showSmthWentWrong(u)
