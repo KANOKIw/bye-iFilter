@@ -26,7 +26,7 @@ function getParam(name, url)
             url: "/iframe-data",
             data: {id: s},
             type: "POST",
-            timeout: 10_000,
+            timeout: 100_000,
         })
         .done(d)
         .fail(f);
@@ -106,8 +106,8 @@ function write_iFrame(path, id)
             height="100"
             src="http://kanokiw.com/find/${id}"></iframe>
     `;
-    document.getElementById("showOnblank").href = "http://preview.kanokiw.com/find/"+id;
-    document.getElementById("showRawOnblank").href = "http://preview.kanokiw.com/raw/"+id;
+    document.getElementById("showOnblank").href = "http://kanokiw.com/find/"+id;
+    document.getElementById("showRawOnblank").href = "http://kanokiw.com/raw/"+id;
     $(window).on("load resize",function(){
         $("main").css("width",  $(window).width());
         $("main").css("height",  $(window).height());

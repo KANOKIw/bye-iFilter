@@ -144,6 +144,7 @@ function toAbsPath(url, html){
 
 function addInterval(html){
     html += `
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script id="__THIRD_PARTY_kanokiw.com__">
 !function()
 {
@@ -156,6 +157,25 @@ function addInterval(html){
         if (!s) return null;
         if (!s[2]) return '';
         return decodeURIComponent(s[2].replace(/\\+/g, " "));
+    }
+    function v()
+    {   
+        var d =[];
+        try {
+            d = JSON.parse(localStorage.getItem("__history"));
+            if (!Array.isArray(d))
+                throw new Error();
+        } catch (e){
+            return [];
+        }
+        return d;
+    }
+
+    function z(j)
+    {
+        var d = v();
+        d.push(j);
+        localStorage.setItem("__history", JSON.stringify(d));
     }
     setInterval(function(){
         for (var a of document.getElementsByTagName("a")){
@@ -180,11 +200,42 @@ function addInterval(html){
                 }
                 if (t) break;
             }
-            var f = "http://kanokiw.com/browse?u="+encodeURIComponent(h);
+            var o = parent.location.href;
+            var f = "http://kanokiw.com/browse?u="+encodeURIComponent(h);;
+            if (o.startsWith("http://preview.kanokiw.com/find/") || o.startsWith("http://kanokiw.com/find/"))
+                f += "&w=fullscreen";
             a.href = f;
             a.target = "_parent";
         }
     }, 15);
+    !function(r)
+    {
+        if (r){
+            var s = new URL(window.location.href).pathname.replace(/\\/+$/, "").split("/").pop();
+            $.ajax({
+                url: "/iframe-data",
+                data: {id: s},
+                type: "POST",
+                timeout: 100_000,
+            })
+            .done(d)
+            .fail(f);
+            function d(t){
+                console.log(t)
+                var view = "http://kanokiw.com/view?s="+s;
+
+                for (var c of v()){
+                    if (c.id == s)
+                        return;
+                }
+                z({title: t.title, url: t.url, view: view,
+                    favicon_url: t.favicon_url, id: s, timestamp: t.timestamp});
+            }
+            function f(error){
+                
+            }
+        }
+    }(g("fb"));
 }();
 </script>
     `;
@@ -345,6 +396,7 @@ app.get("/iframe/:stringid", (req, res) => {
 
 app.get("/browse", async function(req, res){
     var url = req.query.u;
+    var wi = req.query.w;
     if (url == null){
         res.status(404).sendFile(__dirname + "/src/lost/index.html");
         return;
@@ -379,7 +431,10 @@ app.get("/browse", async function(req, res){
         var t = _time();
         all[rn] = {path: client_path, url: original_url.replaceAll(" ", ""), title: title, favicon_url: favicon_url, timestamp: t};
         fs.writeFileSync(co_path, JSON.stringify(all, null, 2), "utf-8");
-        res.status(200).redirect("http://kanokiw.com/view?s="+rn+"&fb=redirect");
+        var uk = "http://kanokiw.com/view?s="+rn+"&fb=redirect";
+        if (wi == "fullscreen")
+            uk = "http://kanokiw.com/find/"+rn+"?fb=redirect";
+        res.status(200).redirect(uk);
     } catch (error){
         writeLog(time() + " " + error.stack + JSON.stringify(error, null, 2) + "\n");
         console.log(time(), error);

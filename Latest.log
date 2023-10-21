@@ -31,3 +31,36 @@ INFO: [2023-09-21 18:46:29] Raw: /raw/2DH7c2O8hrF0VQ3s --s=2DH7c2O8hrF0VQ3s
 INFO: [2023-09-21 18:46:29] GET: http://preview.kanokiw.com/raw/2DH7c2O8hrF0VQ3s --s=XnhfIGFkHchURjQH
 INFO: [2023-09-21 18:46:33] GET: https://www.youtube.com/ --s=DWi6HUfVKbaz2Hzc
 INFO: [2023-09-21 18:46:40] GET: https://qiita.com/sotasato/items/31be24d6776f3232c0c0 --s=TvpMFChtGYWpYfWP
+INFO: [2023-09-21 18:47:52] GET: https://avex.jp/aaa/ --s=OkcffGzmBEeLnMBx
+ERROR: [2023-09-21 19:02:11] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\bye-iFilter\app.js:246:24{
+  "cause": {
+    "errno": -3008,
+    "code": "ENOTFOUND",
+    "syscall": "getaddrinfo",
+    "hostname": "xn--ihq42vy1fn54absaz41hswl"
+  }
+}
+INFO: [2023-09-21 19:02:24] GET: https://www.google.co.jp/search?q=%E9%80%A3%E7%AB%8B%E4%B8%8D%E7%AD%89%E5%BC%8F%E9%A0%98%E5%9F%9F&oq=%E9%80%A3%E7%AB%8B%E4%B8%8D%E7%AD%89%E5%BC%8F%E9%A0%98%E5%9F%9F+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=rV88J1eVyrmvD80K
+INFO: [2023-09-21 19:34:22] GET: https://chat.openai.com/c/773d0d1a-e491-4d39-a244-d718854528d7 --s=gRsb8IWjRBsD3k61
+INFO: [2023-09-21 19:44:14] GET: https://www.google.co.jp/search?q=wwwa&oq=wwwa+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=LL50eguHzgyYEhIO
+INFO: [2023-09-21 19:45:39] GET: https://www.google.co.jp/search?q=aws&oq=aws+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=j3mNngpjwlkDhLbb
+INFO: [2023-09-21 19:46:13] GET: https://www.google.co.jp/search?q=aaw&oq=aaw+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=8rvx6KDepybHxUT6
+INFO: [2023-09-21 19:47:58] GET: https://www.google.co.jp/search?q=awww&oq=awww+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=tAfgqxtPT8Q5blAC
+INFO: [2023-09-21 19:48:52] GET: https://www.google.co.jp/search?q=ww&oq=ww+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=qUyd2pOtexQxQNAk
+INFO: [2023-09-21 19:52:26] GET: https://www.google.co.jp/search?q=www&oq=www+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=nvvfPbHSjx4FRCwZ
+INFO: [2023-09-21 19:54:31] GET: https://www.google.co.jp/search?q=wa&oq=wa+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=pFWcgzlHd7Oh0X35
+[2023-09-21 19:54:34] TypeError: terminated
+    at Fetch.onAborted (node:internal/deps/undici/undici:11323:53)
+    at Fetch.emit (node:events:513:28)
+    at Fetch.terminate (node:internal/deps/undici/undici:10578:14)
+    at Object.onError (node:internal/deps/undici/undici:11418:36)
+    at Request.onError (node:internal/deps/undici/undici:8210:31)
+    at errorRequest (node:internal/deps/undici/undici:10264:17)
+    at TLSSocket.onSocketClose (node:internal/deps/undici/undici:9710:9)
+    at TLSSocket.emit (node:events:525:35)
+    at node:net:322:12
+    at TCP.done (node:_tls_wrap:588:7){}
+INFO: [2023-09-21 19:55:36] GET: https://www.google.co.jp/search?q=waaa&oq=waaa+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=WTGdH7tBvRxfCkpg
