@@ -290,7 +290,7 @@ function showHist()
                     <div class="hist_favicon_wrapper">
                         <img class="hist_favicon" src="${favicon_url}">
                     </div>
-                    <div>
+                    <div class="hist_det">
                         <span class="hist_title">${title}</span>
                         <div class="hist_url"><a href="${view}">${view}</a></div>
                         <div class="hist_url">Origin: <a href="${url}">${url}</a></div>

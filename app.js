@@ -217,7 +217,7 @@ app.post("/fetch-for-ipad", async function(req, res){
         var client_path = path.slice(1);
         
         console.log(`${time()} GET: ${url} --s=${rn}`);
-        writeLog(`INFO: ${time()} GET: ${url} --s=${rn}`);
+        writeLog(`INFO: ${time()} GET: ${url} --s=${rn}\n`);
         url = response.url;
         text = toAbsPath(url, text);
         text = addInterval(text);

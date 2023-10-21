@@ -259,6 +259,13 @@ button:hover{
     width: 18px;
 }
 
+.hist_det{
+    width: 75vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .hist_title{
     font-size: 18px;
     font-weight: bold;
@@ -267,10 +274,6 @@ button:hover{
 .hist_url{
     font-size: 16px;
     line-height: 22px;
-    width: 75vw;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 #hist_viewer_back{
