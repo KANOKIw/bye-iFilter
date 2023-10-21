@@ -95,7 +95,16 @@ function getParam(name, url)
         for (var s of syms){
             url = url.replaceAll(s, "");
         }
-        if (url.startsWith("https://www.google.co.jp/url") || url.startsWith("https://www.google.com/url")){  // i-filter base url
+        if (
+            url.startsWith("https://www.google.co.jp/url")
+            || url.startsWith("https://www.google.com/url")
+            || url.startsWith("https://google.co.jp/url")
+            || url.startsWith("https://google.com/url")
+            || url.startsWith("http://www.google.co.jp/url")
+            || url.startsWith("http://www.google.com/url")
+            || url.startsWith("http://google.co.jp/url")
+            || url.startsWith("http://google.com/url")
+            ){  // i-filter base url
             var base = url;
             url = getParam("url", base);
             if (url == null)
