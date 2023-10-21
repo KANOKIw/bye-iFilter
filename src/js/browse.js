@@ -38,6 +38,10 @@ if (fb){
         var main = document.getElementById("aw");
         var view = `http://kanokiw.com/view?s=${s}`;
 
+        for (var di of getHist()){
+            if (ea.id == s)
+                return;
+        }
         addToHist({title: data.title, url: data.url, view: view,
             favicon_url: data.favicon_url, id: s, timestamp: data.timestamp});
     }
