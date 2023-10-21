@@ -25,12 +25,14 @@ var GOOLE = `<!--
         showSmthWentWrong(u);
         throw new Error();
     }
+    $("#aw").show();
 }(wrong);
 
 !function(){
-    if (window.location.href.includes("?"))
+    var l = window.location.href;
+    if (l.includes("?"))
         window.location.href = "/";
-    if (window.location.href.startsWith("http://preview"))
+    if (l.startsWith("http://preview"))
         window.location.href = "http://kanokiw.com/";
 }();
 
@@ -44,46 +46,6 @@ function getParam(name, url)
     if (!results[2]) return '';
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
-
-/**
- * only do show(main);
-*/
-!function(){
-    var s = getParam("s");
-
-    if (s !== null){
-        $.ajax({
-            url: "/iframe/"+s,
-            type: "GET",
-            timeout: 10_000,
-        })
-        .done(d)
-        .fail(f);
-        function d(data){
-            var path = data.path;
-            var u = data.url;
-            var title = data.title;
-            var a = "";
-
-            if (title){
-                $("title").text(`${title} | Browser | KANOKIw`);
-            }
-            if (u.startsWith("http://")){
-                var ex = "https"+u.slice(4);
-                a = `<a href="${u}">${u}</a><span style="color: var(--color-primary);;">&nbsp;|&nbsp;</span><a href="${ex}">${ex}</a>`
-            } else {
-                a = `<a href="${u}">${u}</a>`;
-            }
-            write_iFrame(path, s);
-            $("#typing").html(a).attr("contenteditable", "false");
-        }
-        function f(error){
-            document.getElementsByTagName("html")[0].innerHTML = error.responseText;
-            throw new Error();
-        }
-    }
-    $("#aw").show();
-}();
 
 !function(t, s, c, j, h, i, z)
 {

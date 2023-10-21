@@ -12,9 +12,10 @@ function getParam(name, url)
 }
 
 !function()
-{
-    if (window.location.href.startsWith("http://preview"))
-        window.location.href = window.location.href.replace("preview.kanokiw.com", "kanokiw.com");
+{   
+    var l = window.location.href;
+    if (l.startsWith("http://preview"))
+        window.location.href = l.replace("preview.kanokiw.com", "kanokiw.com");
 }();
 
 !function(r)
