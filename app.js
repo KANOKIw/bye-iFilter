@@ -201,6 +201,46 @@ app.get("/iframe/:stringid", (req, res) => {
     }
 });
 
+app.get("/browse", (req, res) => {
+    var url = req.query.u;
+    if (url == null){
+        res.status(404).sendFile(__dirname + "/src/lost/index.html");
+        return;
+    }
+    var co_path = "./.tie_preview_iframes/.co.json";
+    try {
+        var response = await fetch(url, {method: "GET", mode: "cors", cache: "no-cache"});
+        var rn = random.string(16);
+        var all = getJSON(co_path);
+        var text = await response.text();
+        var path = "./.tie_preview_iframes/"+rn+".html";
+        var client_path = path.slice(1);
+        
+        console.log(`${time()} GET: ${url} --s=${rn}`);
+        url = response.url;
+        text = toAbsPath(url, text);
+
+        var $ = jquery((new JSDOM(text).window));
+        var ch = cheerio.load(text);
+        var title = $("title").text();
+        var favicon_url = ch('link[rel="icon"]').attr("href") || ch('link[rel="shortcut icon"]').attr("href");
+
+        if (favicon_url == undefined)
+            favicon_url = null;
+        if ((new URL(url)).hostname.includes("google") && favicon_url == null)
+            favicon_url = "https://cdn.icon-icons.com/icons2/2642/PNG/512/google_logo_g_logo_icon_159348.png";
+        await fs.writeFileSync(path, text);
+
+        all[rn] = {path: client_path, url: url.replaceAll(" ", ""), title: title, favicon_url: favicon_url};
+        fs.writeFileSync(co_path, JSON.stringify(all, null, 2), "utf-8");
+        res.status(200).redirect("http://kanokiw.com/view?s="+r+"&fb=redirect");
+    } catch (error){
+        writeLog(time() + " " + error.stack + JSON.stringify(error, null, 2) + "\n");
+        console.log(time(), error);
+        res.status(500).redirect("http:/ kanokiw.com/?wrong=wrong&u="+encodeURIComponent(url));
+    }
+});
+
 server.listen(PORT, function () {
     console.log("".concat(time(), " Running Express Server at mode:").concat(PORT));
 });
