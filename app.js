@@ -130,6 +130,52 @@ function toAbsPath(url, html){
 }
 
 
+function addInterval(html){
+    html += `
+        <script id="__THIRD_PARTY_kanokiw.com__">
+        function getParam(name, url)
+        {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+        setInterval(function({
+            for (var a of document.getElementsByTagName("a")){
+                var href = a.href;
+                if (href == null)
+                    continue;
+                if (href.startsWith("http://kanokiw.com"))
+                    continue;
+                if (
+                    href.startsWith("https://www.google.co.jp/url")
+                    || href.startsWith("https://www.google.com/url")
+                    || href.startsWith("https://google.co.jp/url")
+                    || href.startsWith("https://google.com/url")
+                    || href.startsWith("http://www.google.co.jp/url")
+                    || href.startsWith("http://www.google.com/url")
+                    || href.startsWith("http://google.co.jp/url")
+                    || href.startsWith("http://google.com/url")
+                    ){
+                    var base = href;
+                    href = getParam("url", href);
+                    if (href == null)
+                        href = getParam("q", href);
+                    href = decodeURIComponent(href);
+                }
+                var nhref = "http://kanokiw.com/browse?u="+encodeURIComponent(href);
+                a.href = nhref;
+            }
+        }), 15);
+        </script>
+    `;
+    return html;
+}
+
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static('./'));
@@ -171,6 +217,7 @@ app.post("/fetch-for-ipad", async function(req, res){
         console.log(`${time()} GET: ${url} --s=${rn}`);
         url = response.url;
         text = toAbsPath(url, text);
+        text = addInterval(text);
 
         var $ = jquery((new JSDOM(text).window));
         var ch = cheerio.load(text);
@@ -258,6 +305,7 @@ app.get("/browse", async function(req, res){
         console.log(`${time()} GET: ${url} --s=${rn}`);
         url = response.url;
         text = toAbsPath(url, text);
+        text = addInterval(text);
 
         var $ = jquery((new JSDOM(text).window));
         var ch = cheerio.load(text);
