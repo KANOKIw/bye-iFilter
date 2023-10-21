@@ -282,14 +282,15 @@ app.get("/raw/:stringid", (req, res) => {
     var stringid = req.params.stringid;
     var data = getJSON(co_path)[stringid];
 
-    console.log(time()+" Raw: "+stringid);
+    console.log(`${time()} Raw: ${req.url} --s=${stringid}`);
     try{
         var re = data.path;
         fs.writeFileSync("./.tie_preview_iframes/rawTXT/"+stringid+".txt", fs.readFileSync("."+re))
-        writeLog("INFO: "+time()+" Raw: "+stringid+"\n");
+        writeLog(`INFO: ${time()} Raw: ${req.url} --s=${stringid}\n`);
         res.sendFile(__dirname + "/.tie_preview_iframes/rawTXT/"+stringid+".txt");
     } catch (e){
-        writeLog("WARN: "+time()+" Raw: "+stringid+"\n    404: NOT FOUND\n");
+        writeLog(`WARN: ${time()} Raw: ${req.url} --s=${stringid}\n    404: NOT FOUND\n`);
+        console.log("    404: NOT FOUND");
         res.status(404).sendFile(__dirname + "/src/lost/index.html");
     }
 });
