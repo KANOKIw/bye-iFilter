@@ -21,7 +21,7 @@ var GOOLE = `<!--
 
 !function(w){
     if (w){
-        var u = decodeURI(getParam("u"));
+        var u = decodeURIComponent(getParam("u"));
         showSmthWentWrong(u);
         throw new Error();
     }
