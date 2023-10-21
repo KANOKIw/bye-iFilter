@@ -233,12 +233,13 @@ button:hover{
 
 .hist_element{
     margin: 50px;
+    margin-left: 5vw;
     margin-right: 0;
 }
 
 .hist_main_wrapper{
     display: flex;
-    width: 100vw;
+    width: 95vw;
 }
 
 .hist_favicon_wrapper{
@@ -260,7 +261,12 @@ button:hover{
 }
 
 .hist_det{
-    width: 75vw;
+    width: 80vw;
+    display:flex;
+    flex-flow: column;
+}
+
+.hist_det .det_elm{
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
