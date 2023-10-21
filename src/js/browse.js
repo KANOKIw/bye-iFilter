@@ -163,12 +163,12 @@ function getParam(name, url)
         initOverlay();
         if (getHist().length < 1){
             localStorage.setItem("__history", "[]");
-            noticeHist("error", "Error: Nothing to clear.", 3000);
+            noticeHist("error", "Error: Nothing to clear.", 5000);
             showHist();
             return;
         }
         localStorage.setItem("__history", "[]");
-        noticeHist("success", "Successfully cleared your browse history.", 3000);
+        noticeHist("success", "Successfully cleared your browsing history.", 5000);
         showHist();
     });
     $("#confirm-clear-closer").on("click", initOverlay);
