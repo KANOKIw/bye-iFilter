@@ -289,7 +289,7 @@ app.get("/raw/:stringid", (req, res) => {
         writeLog("INFO: "+time()+" Raw: "+stringid+"\n");
         res.sendFile(__dirname + "/.tie_preview_iframes/rawTXT/"+stringid+".txt");
     } catch (e){
-        writeLog("WARN: "+time()+" Raw: "+stringid+"\n    404: NOT FOUND");
+        writeLog("WARN: "+time()+" Raw: "+stringid+"\n    404: NOT FOUND\n");
         res.status(404).sendFile(__dirname + "/src/lost/index.html");
     }
 });
