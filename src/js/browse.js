@@ -19,15 +19,19 @@ var GOOLE = `<!--
     --><span style="color: #DB4437;">e</span><!--
 -->`;
 
-if (wrong){
-    var u = decodeURI(getParam("u"));
-    showSmthWentWrong(u);
-    throw new Error();
-}
+!function(w){
+    if (w){
+        var u = decodeURI(getParam("u"));
+        showSmthWentWrong(u);
+        throw new Error();
+    }
+}(wrong);
 
 !function(){
     if (window.location.href.includes("?"))
         window.location.href = "/";
+    if (window.location.href.startsWith("http://preview"))
+        window.location.href = "http://kanokiw.com/";
 }();
 
 function getParam(name, url)

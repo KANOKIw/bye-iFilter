@@ -11,31 +11,40 @@ function getParam(name, url)
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
-if (fb){
-    var s = getParam("s");
-    $.ajax({
-        url: "/iframe-data",
-        data: {id: s},
-        type: "POST",
-        timeout: 10_000,
-    })
-    .done(d)
-    .fail(f);
-    function d(data){
-        console.log(data)
-        var view = `http://kanokiw.com/view?s=${s}`;
+!function()
+{
+    if (window.location.href.startsWith("http://preview"))
+        window.location.href = window.location.href.replace("preview.kanokiw.com", "kanokiw.com");
+}();
 
-        for (var di of getHist()){
-            if (di.id == s)
-                return;
+!function(r)
+{
+    if (r){
+        var s = getParam("s");
+        $.ajax({
+            url: "/iframe-data",
+            data: {id: s},
+            type: "POST",
+            timeout: 10_000,
+        })
+        .done(d)
+        .fail(f);
+        function d(data){
+            console.log(data)
+            var view = `http://kanokiw.com/view?s=${s}`;
+
+            for (var di of getHist()){
+                if (di.id == s)
+                    return;
+            }
+            addToHist({title: data.title, url: data.url, view: view,
+                favicon_url: data.favicon_url, id: s, timestamp: data.timestamp});
         }
-        addToHist({title: data.title, url: data.url, view: view,
-            favicon_url: data.favicon_url, id: s, timestamp: data.timestamp});
+        function f(error){
+            
+        }
     }
-    function f(error){
-        
-    }
-}
+}(fb);
 
 !function()
 {
