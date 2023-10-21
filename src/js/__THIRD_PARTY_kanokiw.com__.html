@@ -1,4 +1,3 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script id="__THIRD_PARTY_kanokiw.com__">
 !function()
 {
@@ -61,19 +60,22 @@
             a.target = "_parent";
         }
     }, 15);
-    !function(r)
+    !async function(r)
     {
         if (r){
             var s = new URL(window.location.href).pathname.replace(/\/+$/, "").split("/").pop();
-            $.ajax({
-                url: "/iframe-data",
-                data: {id: s},
-                type: "POST",
-                timeout: 100_000,
+            await fetch("/iframe-data", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({id: s}),
             })
-            .done(d)
-            .fail(f);
+            .then(function(r){
+                return r.json();
+            })
+            .then(d)
+            .catch(f);
             function d(t){
+                console.log(t)
                 var view = "http://kanokiw.com/view?s="+s;
 
                 for (var c of v()){

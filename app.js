@@ -226,6 +226,7 @@ app.post("/fetch-for-ipad", async function(req, res){
         await fs.writeFileSync(path, text);
 
         var t = _time();
+        if (!title) title = null;
         all[rn] = {path: client_path, url: original_url.replaceAll(" ", ""), title: title, favicon_url: favicon_url, timestamp: t};
         fs.writeFileSync(co_path, JSON.stringify(all, null, 2), "utf-8");
         res.status(200).send({original: text, iframe: client_path, fy: rn, path: client_path,
@@ -239,6 +240,7 @@ app.post("/fetch-for-ipad", async function(req, res){
 
 app.post("/iframe-data", (req, res) => {
     var co_path = "./.tie_preview_iframes/.co.json";
+    console.log(req.body)
     try{
         var id = req.body.id;
         var d = getJSON(co_path);

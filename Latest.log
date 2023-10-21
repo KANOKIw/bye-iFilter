@@ -117,3 +117,50 @@ INFO: [2023-09-21 22:05:41] GET: https://www.google.co.jp/search?q=wa&oq=wa+&sou
     at node:net:322:12
     at TCP.done (node:_tls_wrap:588:7){}
 INFO: [2023-09-21 22:10:49] GET: https://www.google.co.jp/search?q=wa&oq=wa+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=xf1uJOQEzrxD3y3e
+INFO: [2023-09-21 22:16:23] GET: https://www.google.co.jp/search?q=aw&oq=aw+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=ggWj5DQGi1WnjYff
+INFO: [2023-09-21 22:20:37] GET: https://www.google.co.jp/search?q=wwwwwwww&oq=wwwwwwww+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=qidSq1hllx7EmbyA
+INFO: [2023-09-21 22:22:44] GET: https://www.google.co.jp/search?q=w&oq=w+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=Q1FlFQ5Bd3PKDIIc
+ERROR: [2023-09-21 22:24:42] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\bye-iFilter\app.js:202:24{
+  "cause": {
+    "errno": -3008,
+    "code": "ENOTFOUND",
+    "syscall": "getaddrinfo",
+    "hostname": "gg"
+  }
+}
+INFO: [2023-09-21 22:24:44] GET: https://www.google.co.jp/search?q=ww&oq=ww+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=hb3YJrcqaR7pXIl6
+INFO: [2023-09-21 22:26:50] GET: https://www.google.co.jp/search?q=waa&oq=waa+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=oeS86LQEYS6EtEnk
+INFO: [2023-09-21 22:28:22] GET: https://www.google.co.jp/search?q=a&oq=a+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=Fa5TvgFQzL9MIjkY
+INFO: [2023-09-21 22:33:07] GET: https://www.google.co.jp/search?q=wa&oq=wa+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=xHRJmg3f97skkAe4
+[2023-09-21 22:33:08] TypeError: terminated
+    at Fetch.onAborted (node:internal/deps/undici/undici:11323:53)
+    at Fetch.emit (node:events:513:28)
+    at Fetch.terminate (node:internal/deps/undici/undici:10578:14)
+    at Object.onError (node:internal/deps/undici/undici:11418:36)
+    at Request.onError (node:internal/deps/undici/undici:8210:31)
+    at errorRequest (node:internal/deps/undici/undici:10264:17)
+    at TLSSocket.onSocketClose (node:internal/deps/undici/undici:9710:9)
+    at TLSSocket.emit (node:events:525:35)
+    at node:net:322:12
+    at TCP.done (node:_tls_wrap:588:7){}
+INFO: [2023-09-21 22:33:12] GET: https://www.google.co.jp/search?q=waa&oq=waa+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=TgUjdW4lfaLNx2wf
+INFO: [2023-09-21 22:34:36] GET: https://www.google.co.jp/search?q=waaaaaa&oq=waaaaaa+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=NLSAyxaMLT4AmI3R
+INFO: [2023-09-21 22:35:54] GET: https://www.google.co.jp/search?q=aa&oq=aa+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=skRtafcLytBcrCw7
+INFO: [2023-09-21 22:36:31] GET: https://www.google.co.jp/search?q=aaaaaaaaa&oq=aaaaaaaaa+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=Sx3plyyz2uLRpr1K
+INFO: [2023-09-21 22:39:30] GET: https://www.google.co.jp/search?q=wa&oq=wa+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=9M8NKlMjruOoeVhE
+[2023-09-21 22:39:32] TypeError: terminated
+    at Fetch.onAborted (node:internal/deps/undici/undici:11323:53)
+    at Fetch.emit (node:events:513:28)
+    at Fetch.terminate (node:internal/deps/undici/undici:10578:14)
+    at Object.onError (node:internal/deps/undici/undici:11418:36)
+    at Request.onError (node:internal/deps/undici/undici:8210:31)
+    at errorRequest (node:internal/deps/undici/undici:10264:17)
+    at TLSSocket.onSocketClose (node:internal/deps/undici/undici:9710:9)
+    at TLSSocket.emit (node:events:525:35)
+    at node:net:322:12
+    at TCP.done (node:_tls_wrap:588:7){}
+INFO: [2023-09-21 22:40:13] Raw: /raw/uwbq4HaRLdncztdK --s=uwbq4HaRLdncztdK
+INFO: [2023-09-21 22:42:47] GET: https://www.google.co.jp/search?q=w&oq=w+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=XmeNQYndi6rBKTTr
