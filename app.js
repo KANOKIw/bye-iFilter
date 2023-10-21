@@ -73,6 +73,29 @@ function time() {
 }
 
 
+function _time()
+{
+    var datetime = new Date();
+    var year = datetime.getFullYear();
+    var month = datetime.getMonth();
+    var date = datetime.getDate();
+    var hour = datetime.getHours();
+    var minute = datetime.getMinutes();
+    var second = datetime.getSeconds();
+    if (month < 10)
+        month = "0".concat(month);
+    if (date < 10)
+        date = "0".concat(date);
+    if (hour < 10)
+        hour = "0".concat(hour);
+    if (minute < 10)
+        minute = "0".concat(minute);
+    if (second < 10)
+        second = "0".concat(second);
+    return [year, "/", month, "/", date, " ", hour, ":", minute, ":", second].join("");
+}
+
+
 function getJSON(path, encoding){
     if (!encoding){
         encoding = "utf-8";
@@ -160,13 +183,29 @@ app.post("/fetch-for-ipad", async function(req, res){
             favicon_url = "https://cdn.icon-icons.com/icons2/2642/PNG/512/google_logo_g_logo_icon_159348.png";
         await fs.writeFileSync(path, text);
 
-        all[rn] = {path: client_path, url: url.replaceAll(" ", ""), title: title, favicon_url: favicon_url};
+        var t = _time();
+        all[rn] = {path: client_path, url: url.replaceAll(" ", ""), title: title, favicon_url: favicon_url, timestamp: t};
         fs.writeFileSync(co_path, JSON.stringify(all, null, 2), "utf-8");
-        res.status(200).send({original: text, iframe: client_path, fy: rn, path: client_path, url: url.replaceAll(" ", ""), title: title, favicon_url: favicon_url});
+        res.status(200).send({original: text, iframe: client_path, fy: rn, path: client_path,
+            url: url.replaceAll(" ", ""), title: title, favicon_url: favicon_url, timestamp: t});
     } catch (error){
         writeLog(time() + " " + error.stack + JSON.stringify(error, null, 2) + "\n");
         console.log(time(), error);
         res.status(500).send("Error: " + error.message);
+    }
+});
+
+app.post("/iframe-data", (req, res) => {
+    try{
+        var id = req.body.id;
+        var d = getJSON():
+        var data = d[id];
+        res.status(200).send(
+            {title: data.title, url: data.url,
+                favicon_url: data.favicon_url, timestamp: data.timestamp}
+        );
+    } catch (e){
+        res.status(500).end()
     }
 });
 
@@ -201,7 +240,7 @@ app.get("/iframe/:stringid", (req, res) => {
     }
 });
 
-app.get("/browse", (req, res) => {
+app.get("/browse", async function(req, res){
     var url = req.query.u;
     if (url == null){
         res.status(404).sendFile(__dirname + "/src/lost/index.html");
@@ -231,7 +270,8 @@ app.get("/browse", (req, res) => {
             favicon_url = "https://cdn.icon-icons.com/icons2/2642/PNG/512/google_logo_g_logo_icon_159348.png";
         await fs.writeFileSync(path, text);
 
-        all[rn] = {path: client_path, url: url.replaceAll(" ", ""), title: title, favicon_url: favicon_url};
+        var t = _time();
+        all[rn] = {path: client_path, url: url.replaceAll(" ", ""), title: title, favicon_url: favicon_url, timestamp: t};
         fs.writeFileSync(co_path, JSON.stringify(all, null, 2), "utf-8");
         res.status(200).redirect("http://kanokiw.com/view?s="+r+"&fb=redirect");
     } catch (error){
