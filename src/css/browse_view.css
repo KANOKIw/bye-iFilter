@@ -344,7 +344,7 @@ button:hover{
 }
 
 .hist_notifier{
-    width: 100vw;
+    width: auto;
     height: auto;
     display: flex;
     align-items: center;

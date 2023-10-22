@@ -363,6 +363,18 @@ app.get("/browse", async function(req, res){
     }
 });
 
+function redicectR(req, res){
+    var h = req.query.url;
+    if (h == null)
+        h = req.query.q;
+    h = decodeURIComponent(h);
+    res.redirect(h);
+}
+
+app.get("/url", redicectR);
+
+app.get("/redirect", redicectR);
+
 server.listen(PORT, function () {
     console.log("".concat(time(), " Running Express Server at mode:").concat(PORT));
 });

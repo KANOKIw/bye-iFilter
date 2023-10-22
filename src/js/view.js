@@ -118,23 +118,3 @@ function ntf(){
         
     }();
 }
-
-function getHist()
-{   
-    var d =[];
-    try {
-        d = JSON.parse(localStorage.getItem("__history"));
-        if (!Array.isArray(d))
-            throw new Error();
-    } catch (e){
-        return [];
-    }
-    return d;
-}
-
-function addToHist(jsonData)
-{
-    var d = getHist();
-    d.push(jsonData);
-    localStorage.setItem("__history", JSON.stringify(d));
-}
