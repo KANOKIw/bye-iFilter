@@ -244,7 +244,6 @@ app.post("/fetch-for-ipad", async function(req, res){
 
 app.post("/iframe-data", (req, res) => {
     var co_path = "./.tie_preview_iframes/.co.json";
-    console.log(req.body)
     try{
         var id = req.body.id;
         var d = getJSON(co_path);
