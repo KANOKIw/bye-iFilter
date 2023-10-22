@@ -360,3 +360,5 @@ ERROR: [2023-09-22 16:29:28] TypeError: fetch failed
     "hostname": "xn--j-s9ta"
   }
 }
+INFO: [2023-09-22 16:46:54] GET: https://www.google.co.jp/search?q=a&oq=a+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=xwY7LRe5rpriVy0z
+INFO: [2023-09-22 16:47:07] Raw: /raw/xwY7LRe5rpriVy0z --s=xwY7LRe5rpriVy0z
