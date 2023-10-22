@@ -44,6 +44,8 @@
                         if (
                             h.startsWith(p+"://www.google."+l+"/url")
                             || h.startsWith(p+"://google."+l+"/url")
+                            || h.startsWith(p+"://www.youtube."+l+"/redirect")
+                            || h.startsWith(p+"://youtube."+l+"/redirect")
                         )
                         {
                             var b = h;
@@ -60,9 +62,12 @@
                 var o = parent.location.href;
                 var f = "http://kanokiw.com/browse?u="+encodeURIComponent(h);;
                 if (o.startsWith("http://preview.kanokiw.com/find/") || o.startsWith("http://kanokiw.com/find/"))
+                {
                     f += "&w=fullscreen";
-                a.href = f;
+                }
                 a.target = "_parent";
+                a.href = f;
+                a.replaceWith(a.cloneNode(true));
             }
         },
     15);

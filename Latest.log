@@ -209,3 +209,141 @@ INFO: [2023-09-22 12:54:16] GET: https://www.google.co.jp/search?q=a&oq=a+&sourc
 INFO: [2023-09-22 12:56:10] GET: https://dime.jp/genre/1389064/#:~:text=%E4%BC%9A%E8%A9%B1%E3%81%AE%E5%89%8D%E3%81%AB%E3%81%A4%E3%81%91%E3%82%8B%E6%84%9F%E5%98%86%E8%A9%A9%E3%80%8CAww%E3%80%8D&text=%E6%82%B2%E3%81%97%E3%81%84%E3%81%A8%E3%81%8D%E3%82%84%E3%82%AC%E3%83%83%E3%82%AB%E3%83%AA%E3%81%97%E3%81%9F,%E6%B4%BB%E7%94%A8%E3%81%A7%E3%81%8D%E3%82%8B%E4%B8%87%E8%83%BD%E3%83%95%E3%83%AC%E3%83%BC%E3%82%BA%E3%81%A7%E3%81%99%E3%80%82&text=%E2%80%95%20Aww%2C%20thank%20you%20so%20much,I%20miss%20Hawaii%20so%20much. --s=fuksMytdaaHrNbn0
 INFO: [2023-09-22 12:57:10] GET: https://www.google.co.jp/search?q=s%E3%81%AA&oq=s%E3%81%AA+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=f5Oo3DDf3YHxTK1j
 INFO: [2023-09-22 13:51:00] GET: https://www.google.co.jp/search?q=s&oq=s+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=xQ02L568ODbBqogl
+ERROR: [2023-09-22 14:10:14] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\bye-iFilter\app.js:208:24{
+  "cause": {
+    "errno": -3008,
+    "code": "ENOTFOUND",
+    "syscall": "getaddrinfo",
+    "hostname": "c418"
+  }
+}
+INFO: [2023-09-22 14:10:17] GET: https://www.google.co.jp/search?q=c418&oq=c418+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=oilF5hOliFTYq8JN
+INFO: [2023-09-22 14:12:03] GET: https://www.google.co.jp/search?q=t&oq=t+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=ZGcXuo7u0EBRDhRu
+ERROR: [2023-09-22 15:08:15] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\bye-iFilter\app.js:208:24{
+  "cause": {
+    "errno": -3008,
+    "code": "ENOTFOUND",
+    "syscall": "getaddrinfo",
+    "hostname": "y"
+  }
+}
+ERROR: [2023-09-22 15:09:13] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\bye-iFilter\app.js:208:24{
+  "cause": {
+    "errno": -3008,
+    "code": "ENOTFOUND",
+    "syscall": "getaddrinfo",
+    "hostname": "j"
+  }
+}
+ERROR: [2023-09-22 15:10:33] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\bye-iFilter\app.js:208:24{
+  "cause": {
+    "errno": -3008,
+    "code": "ENOTFOUND",
+    "syscall": "getaddrinfo",
+    "hostname": "f"
+  }
+}
+INFO: [2023-09-22 15:22:11] GET: https://www.google.co.jp/search?q=yy&oq=yy+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=O3FspIh8JTnyaYhz
+ERROR: [2023-09-22 15:26:39] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\bye-iFilter\app.js:208:24{
+  "cause": {
+    "errno": -3008,
+    "code": "ENOTFOUND",
+    "syscall": "getaddrinfo",
+    "hostname": "hikakin"
+  }
+}
+INFO: [2023-09-22 15:26:40] GET: https://www.google.co.jp/search?q=hikakin&oq=hikakin+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=n0YdXxRkf3gMKGeA
+INFO: [2023-09-22 15:26:44] GET: https://www.google.co.jp/search?q=higkakin&oq=higkakin+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=zNIKOdd3pS4dyI7O
+ERROR: [2023-09-22 15:40:38] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\bye-iFilter\app.js:208:24{
+  "cause": {
+    "errno": -3008,
+    "code": "ENOTFOUND",
+    "syscall": "getaddrinfo",
+    "hostname": "a"
+  }
+}
+ERROR: [2023-09-22 15:40:40] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\bye-iFilter\app.js:208:24{
+  "cause": {
+    "errno": -3008,
+    "code": "ENOTFOUND",
+    "syscall": "getaddrinfo",
+    "hostname": "a"
+  }
+}
+ERROR: [2023-09-22 15:40:41] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\bye-iFilter\app.js:208:24{
+  "cause": {
+    "errno": -3008,
+    "code": "ENOTFOUND",
+    "syscall": "getaddrinfo",
+    "hostname": "a"
+  }
+}
+ERROR: [2023-09-22 15:40:53] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\bye-iFilter\app.js:208:24{
+  "cause": {
+    "errno": -3008,
+    "code": "ENOTFOUND",
+    "syscall": "getaddrinfo",
+    "hostname": "w"
+  }
+}
+ERROR: [2023-09-22 15:42:50] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\bye-iFilter\app.js:208:24{
+  "cause": {
+    "errno": -3008,
+    "code": "ENOTFOUND",
+    "syscall": "getaddrinfo",
+    "hostname": "w"
+  }
+}
+ERROR: [2023-09-22 15:43:00] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\bye-iFilter\app.js:208:24{
+  "cause": {
+    "errno": -3008,
+    "code": "ENOTFOUND",
+    "syscall": "getaddrinfo",
+    "hostname": "ww"
+  }
+}
+INFO: [2023-09-22 15:43:04] GET: https://www.google.co.jp/search?q=aw&oq=aw+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=VwETtvWvDIo7ZNBC
+ERROR: [2023-09-22 15:43:09] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\bye-iFilter\app.js:208:24{
+  "cause": {
+    "errno": -3008,
+    "code": "ENOTFOUND",
+    "syscall": "getaddrinfo",
+    "hostname": "a"
+  }
+}

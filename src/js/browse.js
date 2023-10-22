@@ -59,6 +59,7 @@ function getParam(name, url)
             doAnimation("#typing_wrapper", "border_warn");
             return;
         }
+        disableButtons();
         var syms = ["\n", " ", "　"];
         for (var s of syms){
             url = url.replaceAll(s, "");
@@ -77,7 +78,7 @@ function getParam(name, url)
         if (uk.origin == url)
             url += "/";
         $("#getterBtn").show();
-        getHTML(url);
+        getSource(url);
     });
     c.addEventListener("click", function(event){
         var q = t.textContent;
@@ -85,13 +86,14 @@ function getParam(name, url)
             doAnimation("#typing_wrapper", "border_warn");
             return;
         }
+        disableButtons();
         q = encodeURIComponent(q);
         q = q.replace("%20", "+");
         var url = `https://www.google.co.jp/search?q=${q}&oq=${q}+&sourceid=${getBrowserName()}&client=${getBrowserName()}&ie=UTF-8&oe=UTF-8`;
         if ((new URL(url)).origin == url)
             url += "/";
         $("#googlerBtn").show();
-        getHTML(url);
+        getSource(url);
     });
     !function(){
         j.innerHTML = `<span id="paste_form_sub_">サイトのリンクをペースト | ${GOOLE}検索</span>`;
@@ -140,7 +142,7 @@ function getParam(name, url)
 /**
  * @param {string} code
 */
-function getHTML(code)
+function getSource(code)
 {
     $.ajax({
         data: {url: code},
@@ -345,6 +347,14 @@ function closeHist()
 
 function hideLoadingSymbols(){
     $(".loading_gif").hide();
+}
+
+function disableButtons(except){
+    Array.from(document.getElementsByClassName("req-btn")).forEach(e => {
+        if (e.id != except){
+            e.classList.add("btn-nw");
+        }
+    });
 }
 
 function time()

@@ -50,6 +50,16 @@ main{
     margin: 7px;
 }
 
+.req-btn{
+    transition: all 0.1s linear;
+}
+
+.btn-nw{
+    pointer-events: none;
+    background-color: black;
+    opacity: 0.75;
+}
+
 #typing_wrapper_x{
     display: flex;
     justify-content: center;
