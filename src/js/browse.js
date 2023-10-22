@@ -272,8 +272,8 @@ function showHist()
             <li class="hist_element">
                 <h3>${timestamp}</h3>
                 <div class="hist_main_wrapper">
-                    <div class="hist_favicon_wrapper">
-                        <img class="hist_favicon" src="${favicon_url}" onError="this.onerror=null;this.src='/img/notFound.png';" alt="favicon">
+                    <div class="hist_favicon_wrapper private">
+                        <img class="hist_favicon private" src="${favicon_url}" onError="this.onerror=null;this.src='/img/notFound.png';" alt="favicon">
                     </div>
                     <div class="hist_det">
                         <span class="hist_title det_elm">${title}</span>

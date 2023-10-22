@@ -347,3 +347,16 @@ ERROR: [2023-09-22 15:43:09] TypeError: fetch failed
     "hostname": "a"
   }
 }
+INFO: [2023-09-22 16:26:40] GET: https://www.google.co.jp/search?q=hi&oq=hi+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=uy78phqGeU94DLdk
+INFO: [2023-09-22 16:29:19] GET: https://www.google.co.jp/search?q=google.co.jp&oq=google.co.jp+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=m0kRGZlnPP8uJGhn
+ERROR: [2023-09-22 16:29:28] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\bye-iFilter\app.js:208:24{
+  "cause": {
+    "errno": -3008,
+    "code": "ENOTFOUND",
+    "syscall": "getaddrinfo",
+    "hostname": "xn--j-s9ta"
+  }
+}
