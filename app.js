@@ -365,10 +365,13 @@ app.get("/browse", async function(req, res){
 
 function redicectR(req, res){
     var h = req.query.url;
+    var wi = req.query.w;
     if (h == null)
         h = req.query.q;
     h = decodeURIComponent(h);
-    res.redirect(h);
+    var g = "http://kanokiw.com/browse?u="+h;
+    if (wi) g += "&w=fullscreen";
+    res.redirect(g);
 }
 
 app.get("/url", redicectR);
