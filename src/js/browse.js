@@ -85,8 +85,8 @@ function getParam(name, url)
             doAnimation("#typing_wrapper", "border_warn");
             return;
         }
-        q = q.replace(" ", "+");
         q = encodeURIComponent(q);
+        q = q.replace("%20", "+");
         var url = `https://www.google.co.jp/search?q=${q}&oq=${q}+&sourceid=${getBrowserName()}&client=${getBrowserName()}&ie=UTF-8&oe=UTF-8`;
         if ((new URL(url)).origin == url)
             url += "/";
