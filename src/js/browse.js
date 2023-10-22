@@ -173,6 +173,7 @@ function getSource(code)
         addToHist({title: data.title, url: data.url, view: view,
             favicon_url: data.favicon_url, id: id, timestamp: data.timestamp});
         hideLoadingSymbols();
+        enableButtons();
         window.location.href = red;
     }
 }
@@ -227,10 +228,18 @@ function hideLoadingSymbols(){
     $(".loading_gif").hide();
 }
 
-function disableButtons(except){
+function disableButtons(excepting){
     Array.from(document.getElementsByClassName("req-btn")).forEach(e => {
-        if (e.id != except){
+        if (e.id != excepting){
             e.classList.add("btn-nw");
+        }
+    });
+}
+
+function enableButtons(excepting){
+    Array.from(document.getElementsByClassName("req-btn")).forEach(e => {
+        if (e.id != excepting){
+            e.classList.remove("btn-nw");
         }
     });
 }
