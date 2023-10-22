@@ -276,7 +276,7 @@ function showHist()
                     <div class="hist_det">
                         <span class="hist_title det_elm">${title}</span>
                         <span class="hist_url det_elm"><a href="${view}">${view}</a></span>
-                        <span class="hist_url det_elm">Origin: <a href="${url}">${url}</a></span>
+                        <span class="hist_url det_elm">Origin: <a href="${url}" target="_blank">${url}</a></span>
                     </div>
                 </div>
             </li>
