@@ -398,3 +398,18 @@ INFO: [2023-09-22 18:22:50] GET: http://localhost/ --s=LE5UZUREhE3LIFMH
 INFO: [2023-09-22 18:23:34] GET: http://localhost/ --s=ZsTLCPTQcK8gKdCl
 INFO: [2023-09-22 18:24:40] GET: http://157.65.97.183/ --s=H8jaLC5n7pSmT1kr
 INFO: [2023-09-22 18:25:19] Raw: /raw/H8jaLC5n7pSmT1kr --s=H8jaLC5n7pSmT1kr
+INFO: [2023-09-22 19:22:16] GET: https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q1123879226 --s=ZIVb1vJ6Lsb5qXdS
+ERROR: [2023-09-22 19:24:44] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\bye-iFilter\app.js:215:24{
+  "cause": {
+    "errno": -3008,
+    "code": "ENOTFOUND",
+    "syscall": "getaddrinfo",
+    "hostname": "wa"
+  }
+}
+INFO: [2023-09-22 19:24:45] GET: https://www.google.co.jp/search?q=w&oq=w+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=d1bjLp3vBlU7HK2R
+INFO: [2023-09-22 19:25:09] GET: https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10152098585 --s=80qa8IoLehUbQRcN
+INFO: [2023-09-22 19:30:13] GET: https://htmlcolorcodes.com/minecraft-color-codes/ --s=QJEZh9rTEGAaWBbL

@@ -126,9 +126,19 @@ function getParam(name, url)
     });
     $("#confirm-clear-closer").on("click", initOverlay);
     $("#confirm-clear-overlay").on("click", initOverlay);
-    function initOverlay(){
-        $("#confirm-clear-overlay").hide();
-        $("body").removeClass("no_scroll");
+    function initOverlay(event){
+        if (
+            event && event.target && event.target.id
+            && (
+                event.target.id == "confirm-clear-bg-wrapper"
+                || event.target.id ==  "confirm-clear-closer"
+                || event.target.id == "hist_deleter_x_"
+                || event.target.id == "hist_deleter_x__"
+            )
+        ){
+            $("#confirm-clear-overlay").hide();
+            $("body").removeClass("no_scroll");
+        }
     }
     var prev_ = getHist();
     setInterval(function(){
@@ -273,7 +283,7 @@ function showHist()
                 <h3>${timestamp}</h3>
                 <div class="hist_main_wrapper">
                     <div class="hist_favicon_wrapper private">
-                        <img class="hist_favicon private" src="${favicon_url}" onError="this.onerror=null;this.src='/img/notFound.png';" alt="favicon">
+                        <img class="hist_favicon private" src="${favicon_url}" onError='this.onerror=null;this.src="/img/notFound.png";' alt="favicon">
                     </div>
                     <div class="hist_det">
                         <span class="hist_title det_elm">${title}</span>
@@ -304,6 +314,9 @@ function showHist()
             $("body").addClass("no_scroll");
         });
     }
+    $("#hist_user_display").prepend(`
+        <span style="display: none" aria-hidden="true">上矢印・下矢印キーを使って履歴を素早く確認しましょう。履歴じゃないものも混ざっていますが(笑)</span>
+    `);
 }
 
 function noticeHist(mode, message, remainDurtion)

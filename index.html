@@ -24,29 +24,29 @@
     <body style="width: 100vw; height: auto;">
         <div id="confirm-clear-overlay">
             <div id="confirm-clear-bg-wrapper">
-                <div id="confirm-clear-bg">
+                <div class="private" id="confirm-clear-bg">
                     <h3 style="position: absolute; width: 300px; text-align: right;"><span id="confirm-clear-closer">×</span></h3>
                     <h2 style="text-align: center;">Clear history</h2>
                     <hr>
                     <h4>This will permanently delete all of your current browsing history.</h4>
                     <hr>
-                    <button class="hist_deleter_x">
-                        <span class="hist_deleter_textContent_x">Clear history</span>
+                    <button id="hist_deleter_x_" class="hist_deleter_x">
+                        <span id="hist_deleter_x__" class="hist_deleter_textContent_x">Clear history</span>
                     </button>
                 </div>
             </div>
         </div>
         <main id="aw" style="display: none;">
             <div class="hist_viewer" style="width: 100vw; height: auto; display: none;">
-                <div style="position: relative;">
+                <div class="private" style="position: relative;">
                     <h1 style="text-align: center; margin-top: 10px;">Your browsing history</h1>
-                    <div id="hist_viewer_back">← 戻る</div>
+                    <div id="hist_viewer_back_wrapper"><span id="hist_viewer_back">← 戻る</span></div>
                 </div>
                 <div id="notify_component">
                     <!--Notifiers here-->
                 </div>
                 <ol id="hist_user_display">
-                    <span style="display: none" aria-hidden="true">上矢印・下矢印キーを使って履歴を素早く確認しましょう。</span>
+                    <!--__history-->
                 </ol>
             </div>
             <div id="_typing">
@@ -65,7 +65,9 @@
                     <div class="loading_gif_wrapper private">
                         <img class="loading_gif private" id="getterBtn" src="./img/loading.gif">
                     </div>
-                    <button class="cent ghFG cent-btn req-btn private" id="cent-submit" type="button">GET</button>
+                    <button class="cent ghFG cent-btn req-btn private" id="cent-submit" type="button">
+                        <span class="dummy-a">GET</span>
+                    </button>
                     <!--Google-->
                     <div class="loading_gif_wrapper private">
                         <img class="loading_gif private" id="googlerBtn" src="./img/loading.gif">
