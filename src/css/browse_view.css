@@ -46,6 +46,11 @@ main{
     -ms-user-select: none;
 }
 
+.dummy-a{
+    color: var(--color-url);
+    text-decoration: underline;
+}
+
 .cent{
     margin: 7px;
 }

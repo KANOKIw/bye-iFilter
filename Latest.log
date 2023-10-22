@@ -362,3 +362,22 @@ ERROR: [2023-09-22 16:29:28] TypeError: fetch failed
 }
 INFO: [2023-09-22 16:46:54] GET: https://www.google.co.jp/search?q=a&oq=a+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=xwY7LRe5rpriVy0z
 INFO: [2023-09-22 16:47:07] Raw: /raw/xwY7LRe5rpriVy0z --s=xwY7LRe5rpriVy0z
+ERROR: [2023-09-22 16:51:37] TypeError: fetch failed
+    at Object.fetch (node:internal/deps/undici/undici:11457:11)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async C:\server1\Shishiji\bye-iFilter\app.js:208:24{
+  "cause": {
+    "errno": -3008,
+    "code": "ENOTFOUND",
+    "syscall": "getaddrinfo",
+    "hostname": "hh"
+  }
+}
+INFO: [2023-09-22 16:51:41] GET: https://www.google.co.jp/search?q=uui&oq=uui+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=3riRoW3UaEXEFhzP
+INFO: [2023-09-22 16:51:56] Raw: /raw/3riRoW3UaEXEFhzP --s=3riRoW3UaEXEFhzP
+INFO: [2023-09-22 16:53:44] GET: https://stackoverflow.com/questions/68671120/are-javascript-variable-names-changed-to-random-letters-when-the-file-is-minifie --s=vGIVYsBR4Assrj4R
+INFO: [2023-09-22 17:39:43] GET: https://www.google.co.jp/search?q=iw+domain+hack&client=safari&sca_esv=575564128&hl=ja-jp&ei=ut80ZZPFE8rm1e8PmNunkA4&ved=0ahUKEwiTisPWoImCAxVKc_UHHZjtCeIQ4dUDCA8&uact=5&oq=iw+domain+hack&gs_lp=Egxnd3Mtd2l6LXNlcnAiDml3IGRvbWFpbiBoYWNrMgUQIRigAUiJHlCnBViCHHABeACQAQCYAecBoAGpEKoBBjAuMTMuMrgBA8gBAPgBAcICBxAAGAQYgATCAgYQABgEGB7CAggQABgEGB4YD8ICCBAAGAgYBBgewgIIEAAYBBgeGArCAgsQABgIGAQYHhjxBMICBRAAGIAEwgIHEAAYigUYQ8ICBBAAGB7CAgYQABgeGArCAgkQABgeGPEEGArCAgkQABgTGIAEGArCAggQABgIGB4YE8ICCBAAGB4YExgKwgIKEAAYCBgeGBMYCsICCBAAGAUYHhgTwgIIEAAYCBgeGArCAgYQABgIGB7CAgoQABgIGAQYHhgNwgIEECEYFeIDBBgBIEGIBgE&sclient=gws-wiz-serp --s=ysD4fGT586yg3UpU
+INFO: [2023-09-22 17:40:19] GET: https://www.hackingloops.com/domain-hijacking-how-to-hijack-domain-names/ --s=gL4ODfeUJhgq2IVD
+INFO: [2023-09-22 17:44:50] GET: https://www.google.co.jp/search?q=%E3%81%82%E3%81%82%E3%81%82&oq=%E3%81%82%E3%81%82%E3%81%82+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=upb5ed3swYLCrX3q
+INFO: [2023-09-22 17:52:38] GET: http://youtub.be/ --s=duFVRMfC7iDhPurB
+INFO: [2023-09-22 17:53:03] GET: https://www.google.co.jp/search?q=w&oq=w+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=Q6PoKI0pW7Pciclu

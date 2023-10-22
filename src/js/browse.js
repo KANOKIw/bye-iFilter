@@ -96,7 +96,7 @@ function getParam(name, url)
         getSource(url);
     });
     !function(){
-        j.innerHTML = `<span id="paste_form_sub_">サイトのリンクをペースト | ${GOOLE}検索</span>`;
+        j.innerHTML = `<span id="paste_form_sub_">サイトの<span class="dummy-a">URL</span> | ${GOOLE}検索</span>`;
         document.getElementById("paste_form_sub_").addEventListener("click", function(){
             t.focus();
             doAnimation("#typing_wrapper", "border_notice");
