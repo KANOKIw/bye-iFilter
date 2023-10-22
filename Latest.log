@@ -413,3 +413,9 @@ ERROR: [2023-09-22 19:24:44] TypeError: fetch failed
 INFO: [2023-09-22 19:24:45] GET: https://www.google.co.jp/search?q=w&oq=w+&sourceid=chrome&client=chrome&ie=UTF-8&oe=UTF-8 --s=d1bjLp3vBlU7HK2R
 INFO: [2023-09-22 19:25:09] GET: https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q10152098585 --s=80qa8IoLehUbQRcN
 INFO: [2023-09-22 19:30:13] GET: https://htmlcolorcodes.com/minecraft-color-codes/ --s=QJEZh9rTEGAaWBbL
+INFO: [2023-09-22 19:40:40] GET: https://detail.chiebukuro.yahoo.co.jp/qa/question_detail/q1163060686 --s=neKWzppebgKjxaBw
+INFO: [2023-09-22 21:36:12] GET: https://www.google.co.jp/search?q=%E3%81%82%E3%81%82%E3%81%82&oq=%E3%81%82%E3%81%82%E3%81%82+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=NA4HliUK8BDUCGzg
+INFO: [2023-09-22 22:57:04] GET: https://www.google.co.jp/search?q=%E3%81%86&oq=%E3%81%86+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=nFn6GZGDBDgSQ2X5
+INFO: [2023-09-22 22:57:09] GET: https://www.google.co.jp/search?q=h&oq=h+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=p5SJsjqfAqUno9yZ
+INFO: [2023-09-22 22:57:13] GET: https://www.google.co.jp/search?q=%E3%81%A3h&oq=%E3%81%A3h+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=4AYwophCySRmJH2y
+INFO: [2023-09-22 23:23:23] GET: https://www.google.co.jp/search?q=noki2008&oq=noki2008+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=jZL8EIr0qxeHDq2b

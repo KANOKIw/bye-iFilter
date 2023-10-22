@@ -70,6 +70,7 @@ function getParam(name, url)
         if (url.startsWith("http://www.kanokiw.com")
             || url.startsWith("http://kanokiw.com")
             || url.startsWith("http://preview.kanokiw.com")
+            || url.startsWith("http://localhost")
             ){
             goToSmthWentWrong();
         }
