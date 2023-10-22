@@ -369,8 +369,7 @@ function redicectR(req, res){
     if (h == null)
         h = req.query.q;
     h = decodeURIComponent(h);
-    var g = "http://kanokiw.com/browse?u="+h;
-    if (wi) g += "&w=fullscreen";
+    var g = "http://kanokiw.com/browse?u="+h+"&w=fullscreen";
     res.redirect(g);
 }
 
