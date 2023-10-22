@@ -144,9 +144,16 @@ function toAbsPath(url, html){
 
 function addInterval(html, url){
     html += `\n<script id="__THIRD_PARTY_kanokiw.com__">\n`;
-    //html += `const __ORIGIN_URL__ = "${url}";`;
+    html += `const __ORIGINAL_URL__ = "${url}";\n`;
     html += fs.readFileSync("./src/js/__THIRD_PARTY_kanokiw.com__.js");
     html += "\n</script>";
+    return html;
+}
+
+
+function reNewTitle(html, title){
+    var ori = html;
+    var html = html.replaceAll(/(<title[^>]*>)(.*?)<\/title>/gi, "$1$2" + title + "</title>");
     return html;
 }
 
@@ -217,6 +224,7 @@ app.post("/fetch-for-ipad", async function(req, res){
         url = response.url;
         text = toAbsPath(url, text);
         text = addInterval(text, url);
+        text = reNewTitle(text, " | KANOKIw | viewer");
 
         var $ = jquery((new JSDOM(text).window));
         var ch = cheerio.load(text);
@@ -328,6 +336,7 @@ app.get("/browse", async function(req, res){
         url = response.url;
         text = toAbsPath(url, text);
         text = addInterval(text, url);
+        text = reNewTitle(text, " | KANOKIw | viewer");
 
         var $ = jquery((new JSDOM(text).window));
         var ch = cheerio.load(text);

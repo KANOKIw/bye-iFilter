@@ -381,3 +381,20 @@ INFO: [2023-09-22 17:40:19] GET: https://www.hackingloops.com/domain-hijacking-h
 INFO: [2023-09-22 17:44:50] GET: https://www.google.co.jp/search?q=%E3%81%82%E3%81%82%E3%81%82&oq=%E3%81%82%E3%81%82%E3%81%82+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=upb5ed3swYLCrX3q
 INFO: [2023-09-22 17:52:38] GET: http://youtub.be/ --s=duFVRMfC7iDhPurB
 INFO: [2023-09-22 17:53:03] GET: https://www.google.co.jp/search?q=w&oq=w+&sourceid=safari&client=safari&ie=UTF-8&oe=UTF-8 --s=Q6PoKI0pW7Pciclu
+INFO: [2023-09-22 18:07:35] GET: http://Kanokiw.com --s=MYI4S8oEKeahE0Lf
+INFO: [2023-09-22 18:07:38] Raw: /raw/MYI4S8oEKeahE0Lf --s=MYI4S8oEKeahE0Lf
+INFO: [2023-09-22 18:19:31] GET: https://htmlcolorcodes.com/minecraft-color-codes/ --s=LtFvqvzmoYjhdYYs
+ERROR: [2023-09-22 18:19:31] TypeError: String.prototype.replaceAll called with a non-global RegExp argument
+    at String.replaceAll (<anonymous>)
+    at reNewTitle (C:\server1\Shishiji\bye-iFilter\app.js:156:21)
+    at C:\server1\Shishiji\bye-iFilter\app.js:227:16
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5){}
+INFO: [2023-09-22 18:20:06] GET: https://htmlcolorcodes.com/minecraft-color-codes/ --s=6CuzwOUM46R04ffF
+INFO: [2023-09-22 18:20:46] GET: http://kanokiw.com/view?s=6CuzwOUM46R04ffF --s=5s2V4mC9ZOMHguKJ
+INFO: [2023-09-22 18:20:49] GET: http://kanokiw.com/view?s=6CuzwOUM46R04ffF --s=vSq4vCDwrv3rSBK8
+INFO: [2023-09-22 18:20:57] GET: http://kanokiw.com/view?s=6CuzwOUM46R04ffF --s=G25wFxXKXOV4hDKA
+INFO: [2023-09-22 18:21:06] GET: https://htmlcolorcodes.com/minecraft-color-codes/ --s=0CvkSx5IFfDscNjn
+INFO: [2023-09-22 18:22:50] GET: http://localhost/ --s=LE5UZUREhE3LIFMH
+INFO: [2023-09-22 18:23:34] GET: http://localhost/ --s=ZsTLCPTQcK8gKdCl
+INFO: [2023-09-22 18:24:40] GET: http://157.65.97.183/ --s=H8jaLC5n7pSmT1kr
+INFO: [2023-09-22 18:25:19] Raw: /raw/H8jaLC5n7pSmT1kr --s=H8jaLC5n7pSmT1kr
