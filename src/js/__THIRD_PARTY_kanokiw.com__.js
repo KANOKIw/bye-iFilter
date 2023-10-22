@@ -1,4 +1,3 @@
-<script id="__THIRD_PARTY_kanokiw.com__">
 !function()
 {
     var q = "__history";
@@ -103,4 +102,3 @@
         }
     }(g("fb"));
 }();
-</script>

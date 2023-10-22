@@ -121,7 +121,7 @@ function getParam(name, url)
     var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
         results = regex.exec(url);
     if (!results) return null;
-    if (!results[2]) return '';
+    if (!results[2]) return "";
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
@@ -142,15 +142,18 @@ function toAbsPath(url, html){
 }
 
 
-function addInterval(html){
-    html += fs.readFileSync("./src/js/__THIRD_PARTY_kanokiw.com__.html");
+function addInterval(html, url){
+    html += `\n<script id="__THIRD_PARTY_kanokiw.com__">\n`;
+    //html += `const __ORIGIN_URL__ = "${url}";`;
+    html += fs.readFileSync("./src/js/__THIRD_PARTY_kanokiw.com__.js");
+    html += "\n</script>";
     return html;
 }
 
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static('./'));
+app.use(express.static("./"));
 
 var server = http.createServer(app);
 var io = new socket_io_1.Server(server, {
@@ -163,7 +166,8 @@ cors:{
 });
 
 io.on("connection", function (socket) {
-    socket.on("disconnect", function(e){
+    socket.on("disconnect", function(event){
+
     });
 });
 
@@ -212,7 +216,7 @@ app.post("/fetch-for-ipad", async function(req, res){
         writeLog(`INFO: ${time()} GET: ${url} --s=${rn}\n`);
         url = response.url;
         text = toAbsPath(url, text);
-        text = addInterval(text);
+        text = addInterval(text, url);
 
         var $ = jquery((new JSDOM(text).window));
         var ch = cheerio.load(text);
@@ -324,7 +328,7 @@ app.get("/browse", async function(req, res){
         console.log(`${time()} GET: ${url} --s=${rn}`);
         url = response.url;
         text = toAbsPath(url, text);
-        text = addInterval(text);
+        text = addInterval(text, url);
 
         var $ = jquery((new JSDOM(text).window));
         var ch = cheerio.load(text);
